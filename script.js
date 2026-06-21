@@ -76,6 +76,77 @@ if (parallaxItems.length) {
   window.addEventListener("resize", updateParallax);
 }
 
+const heroCopy = document.querySelector(".store-hero-copy");
+const heroKicker = document.querySelector("[data-hero-kicker]");
+const heroTitle = document.querySelector("[data-hero-title]");
+const heroText = document.querySelector("[data-hero-copy]");
+const heroPrimary = document.querySelector("[data-hero-primary]");
+const heroSecondary = document.querySelector("[data-hero-secondary]");
+const heroMessages = [
+  {
+    kicker: "VGR",
+    title: "Mr. SUPER POWER",
+    copy: "Stepless Pro 4-in-1 Barber Series Combo Kit for Salon, Red",
+    primary: ["Buy Now", "product.html"],
+    secondary: ["Our Products", "collection.html"]
+  },
+  {
+    kicker: "Hair Trimmer",
+    title: "Rosso Trimmer",
+    copy: "Professional Beard & Moustache Trimmer for Men. Save 36%.",
+    primary: ["Shop Trimmers", "collection.html#trimmers"],
+    secondary: ["View Shavers", "collection.html#shavers"]
+  },
+  {
+    kicker: "Hair Clipper",
+    title: "VL-786 Pro",
+    copy: "Pro hair clipper with COD, 1+1 Year Warranty, and fast dispatch.",
+    primary: ["View Product", "product.html"],
+    secondary: ["Shop Clippers", "collection.html#clippers"]
+  },
+  {
+    kicker: "Hair Dryer",
+    title: "Hair Dryers",
+    copy: "VGR high-speed hair dryers with professional motor performance.",
+    primary: ["Shop Dryers", "collection.html#dryers"],
+    secondary: ["Women’s Tools", "collection.html#women"]
+  },
+  {
+    kicker: "Shaver",
+    title: "Foil Shavers",
+    copy: "Precision beard and bald-head shaving tools from the VGR catalog.",
+    primary: ["Shop Shavers", "collection.html#shavers"],
+    secondary: ["Limited Edition", "collection.html#limited"]
+  },
+  {
+    kicker: "Fabric Care",
+    title: "Lint Removers",
+    copy: "Rechargeable lint removers and rollers for daily fabric care.",
+    primary: ["Shop Fabric Care", "collection.html#fabric"],
+    secondary: ["Pet Grooming", "collection.html#pet"]
+  }
+];
+
+if (heroCopy && heroKicker && heroTitle && heroText && heroPrimary && heroSecondary) {
+  let heroMessageIndex = 0;
+  const setHeroMessage = (index) => {
+    heroMessageIndex = index % heroMessages.length;
+    const message = heroMessages[heroMessageIndex];
+    heroCopy.classList.add("is-changing");
+    window.setTimeout(() => {
+      heroKicker.textContent = message.kicker;
+      heroTitle.textContent = message.title;
+      heroText.textContent = message.copy;
+      heroPrimary.textContent = message.primary[0];
+      heroPrimary.href = message.primary[1];
+      heroSecondary.textContent = message.secondary[0];
+      heroSecondary.href = message.secondary[1];
+      heroCopy.classList.remove("is-changing");
+    }, 220);
+  };
+  window.setInterval(() => setHeroMessage(heroMessageIndex + 1), 3200);
+}
+
 const heroRotator = document.querySelector(".hero-rotator");
 const heroRotatorBadge = document.querySelector(".hero-rotator-badge");
 const heroRotatorName = document.querySelector(".hero-rotator-name");

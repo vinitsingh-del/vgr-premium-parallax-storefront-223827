@@ -605,9 +605,19 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
   text-transform: uppercase;
 }
 
+.store-hero-copy > span b {
+  font: inherit;
+}
+
 .store-hero-copy {
   align-self: center;
   padding-block: 42px;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.store-hero-copy.is-changing {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
 }
 
 .store-hero-copy i,
