@@ -113,10 +113,11 @@ if (sequenceCards.length) {
     const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
     sequenceCards.forEach((card, index) => {
       const local = Math.min(1, Math.max(0, (progress - index * 0.16) / 0.42));
-      const y = (1 - local) * 96;
-      const x = (index - 1) * 18 * (1 - local);
+      const isInlineCard = card.classList.contains("ai-product-card");
+      const y = (1 - local) * (isInlineCard ? 46 : 96);
+      const x = isInlineCard ? 0 : (index - 1) * 18 * (1 - local);
       const scale = 0.92 + local * 0.08;
-      card.style.opacity = String(0.18 + local * 0.82);
+      card.style.opacity = String((isInlineCard ? 0.42 : 0.18) + local * (isInlineCard ? 0.58 : 0.82));
       card.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
     });
   };
