@@ -538,6 +538,35 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
   background: linear-gradient(180deg, var(--brand-soft), #fff 76%);
 }
 
+.home-page .store-hero {
+  min-height: 720px;
+}
+
+.hero-video-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.hero-video-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(232,247,245,0.96) 0%, rgba(232,247,245,0.82) 34%, rgba(255,255,255,0.2) 65%, rgba(255,255,255,0.76) 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.65));
+}
+
+.hero-video-panel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  filter: saturate(1.02) contrast(1.02);
+}
+
 .store-hero::before,
 .collection-hero::before,
 .parallax-showcase::before,
@@ -559,7 +588,7 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 .collection-hero > div,
 .collection-hero > img {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 .store-hero-copy > span,
@@ -574,6 +603,11 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
   font-weight: 900;
   letter-spacing: 0.17em;
   text-transform: uppercase;
+}
+
+.store-hero-copy {
+  align-self: center;
+  padding-block: 42px;
 }
 
 .store-hero-copy i,
@@ -634,6 +668,18 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
   background: #fff;
   box-shadow: 0 22px 60px rgba(10,151,144,0.16);
   will-change: transform;
+}
+
+.home-page .store-hero-media {
+  align-self: end;
+  width: min(58vw, 260px);
+  margin-left: auto;
+  background: rgba(255,255,255,0.88);
+  box-shadow: 0 20px 55px rgba(0,0,0,0.12);
+}
+
+.home-page .store-hero-media img {
+  padding: 10px;
 }
 
 .store-hero-media img,
@@ -1357,7 +1403,7 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 .hero-float-rail {
   position: absolute;
   inset: auto 14px 12px auto;
-  z-index: 2;
+  z-index: 4;
   display: grid;
   grid-template-columns: repeat(3, 58px);
   gap: 8px;
