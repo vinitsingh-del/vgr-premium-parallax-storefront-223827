@@ -75,3 +75,69 @@ if (parallaxItems.length) {
   window.addEventListener("scroll", () => requestAnimationFrame(updateParallax), { passive: true });
   window.addEventListener("resize", updateParallax);
 }
+
+const heroRotator = document.querySelector(".hero-rotator");
+const heroRotatorBadge = document.querySelector(".hero-rotator-badge");
+const heroRotatorName = document.querySelector(".hero-rotator-name");
+const heroSlides = [
+  ["assets/official-01.jpg", "Mr. SUPER POWER Kit", "Save 34%"],
+  ["assets/hero-1-BiMT0yIW.png", "VL-786 Pro Clipper", "Save 54%"],
+  ["assets/official-02.webp", "Rosso Trimmer", "Save 36%"],
+  ["assets/official-04.jpg", "V-401 Hair Dryer", "Pro Dryer"],
+  ["assets/official-11.webp", "V-353 Shaver", "Fast Ship"]
+];
+
+if (heroRotator) {
+  let heroSlideIndex = 0;
+  const setHeroSlide = (index) => {
+    heroSlideIndex = index % heroSlides.length;
+    const [src, name, badge] = heroSlides[heroSlideIndex];
+    heroRotator.closest(".store-hero-media")?.classList.add("is-swapping");
+    window.setTimeout(() => {
+      heroRotator.src = src;
+      heroRotator.alt = name;
+      if (heroRotatorBadge) heroRotatorBadge.textContent = badge;
+      if (heroRotatorName) heroRotatorName.textContent = name;
+      heroRotator.closest(".store-hero-media")?.classList.remove("is-swapping");
+    }, 180);
+  };
+  window.setInterval(() => setHeroSlide(heroSlideIndex + 1), 2400);
+}
+
+const sequenceCards = [...document.querySelectorAll("[data-sequence-card]")];
+if (sequenceCards.length) {
+  const updateSequenceCards = () => {
+    const stage = document.querySelector(".kinetic-stage");
+    if (!stage) return;
+    const rect = stage.getBoundingClientRect();
+    const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+    sequenceCards.forEach((card, index) => {
+      const local = Math.min(1, Math.max(0, (progress - index * 0.16) / 0.42));
+      const y = (1 - local) * 96;
+      const x = (index - 1) * 18 * (1 - local);
+      const scale = 0.92 + local * 0.08;
+      card.style.opacity = String(0.18 + local * 0.82);
+      card.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
+    });
+  };
+  updateSequenceCards();
+  window.addEventListener("scroll", () => requestAnimationFrame(updateSequenceCards), { passive: true });
+  window.addEventListener("resize", updateSequenceCards);
+}
+
+const croPhrases = [
+  "COD",
+  "Ships 24h",
+  "2-Yr Warranty",
+  "Best Seller",
+  "Low Stock",
+  "Easy Replace"
+];
+
+document.querySelectorAll(".product-tile").forEach((tile, index) => {
+  if (tile.querySelector(".cro-badges")) return;
+  const wrap = document.createElement("div");
+  wrap.className = "cro-badges";
+  wrap.innerHTML = `<em>${croPhrases[index % croPhrases.length]}</em><em>${croPhrases[(index + 2) % croPhrases.length]}</em>`;
+  tile.appendChild(wrap);
+});
