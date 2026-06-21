@@ -1159,6 +1159,7 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 
 .filter-bar::-webkit-scrollbar { display: none; }
 
+.filter-bar a,
 .filter-bar button,
 .collection-tools button {
   flex: 0 0 auto;
@@ -1167,8 +1168,11 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
   padding: 10px 13px;
   font-size: 12px;
   font-weight: 900;
+  color: var(--ink);
+  text-decoration: none;
 }
 
+.filter-bar a.active,
 .filter-bar button.active {
   border-color: var(--brand);
   background: var(--brand);
@@ -1188,6 +1192,75 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 
 .collection-grid {
   padding: 0 16px 28px;
+}
+
+.catalog-index {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin: 0 16px 24px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.catalog-index a {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  grid-template-areas:
+    "img name"
+    "img count";
+  align-items: center;
+  gap: 4px 12px;
+  min-height: 92px;
+  padding: 10px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.catalog-index img {
+  grid-area: img;
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  background:
+    linear-gradient(135deg, rgba(10,151,144,0.08), transparent 48%),
+    #f6fbfa;
+}
+
+.catalog-index b {
+  grid-area: name;
+  font-family: var(--display);
+  font-size: 16px;
+  line-height: 1.05;
+}
+
+.catalog-index span {
+  grid-area: count;
+  color: var(--brand);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.catalog-section {
+  padding: 24px 16px 6px;
+  scroll-margin-top: 96px;
+}
+
+.catalog-section .section-head {
+  margin-bottom: 14px;
+}
+
+.catalog-section .section-head h2 {
+  font-size: 34px;
+}
+
+.catalog-section .collection-grid {
+  width: 100%;
+  margin-inline: 0;
+  padding-inline: 0;
 }
 
 .collection-promo {
@@ -1239,6 +1312,8 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
   .media-banner,
   .product-grid-section,
   .category-rail,
+  .catalog-index,
+  .catalog-section,
   .collection-tools,
   .collection-grid {
     width: min(1180px, calc(100% - 64px));
@@ -1284,6 +1359,35 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 
   .conversion-band {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalog-index {
+    grid-template-columns: repeat(5, 1fr);
+    margin-block: 0 34px;
+  }
+
+  .catalog-index a {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img"
+      "name"
+      "count";
+    align-content: start;
+    min-height: 190px;
+    padding: 16px;
+  }
+
+  .catalog-index img {
+    width: 100%;
+    height: 104px;
+  }
+
+  .catalog-index b {
+    font-size: 20px;
+  }
+
+  .catalog-section {
+    padding-inline: 0;
   }
 
   .conversion-band article {
