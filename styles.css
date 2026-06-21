@@ -785,6 +785,64 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
   display: none;
 }
 
+.hero-product-section {
+  display: grid;
+  gap: 1px;
+  padding: 1px;
+  background: var(--line);
+}
+
+.hero-product-section .store-hero-media,
+.hero-image-card {
+  border: 0;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.hero-product-section .store-hero-media {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  box-shadow: none;
+}
+
+.hero-product-section .store-hero-media > img {
+  height: 210px;
+}
+
+.hero-image-card {
+  display: grid;
+  align-content: end;
+  gap: 10px;
+  min-height: 230px;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.hero-image-card img {
+  width: 100%;
+  height: 138px;
+  object-fit: contain;
+  background:
+    linear-gradient(135deg, rgba(10,151,144,0.08), transparent 52%),
+    #f6fbfa;
+}
+
+.hero-image-card small {
+  color: var(--brand);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-image-card b {
+  font-family: var(--display);
+  font-size: 21px;
+  line-height: 1.05;
+}
+
 @media (max-width: 759px) {
   .home-page .store-hero-media {
     width: calc(100% - 32px);
@@ -807,6 +865,12 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 
   .hero-product-info li {
     font-size: 8px;
+  }
+
+  .hero-product-section .store-hero-media {
+    width: auto;
+    max-width: none;
+    margin: 0;
   }
 }
 
@@ -1782,8 +1846,8 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 
 @media (min-width: 760px) {
   .store-hero {
-    grid-template-columns: minmax(440px, 0.78fr) minmax(420px, 0.62fr);
-    min-height: 780px;
+    grid-template-columns: minmax(440px, 0.78fr);
+    min-height: 720px;
   }
 
   .store-hero h1 {
@@ -1809,6 +1873,36 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
 
   .store-hero-media {
     max-width: 540px;
+  }
+
+  .hero-product-section {
+    grid-template-columns: minmax(360px, 1.35fr) repeat(3, minmax(180px, 0.75fr));
+    width: min(1180px, calc(100% - 64px));
+    margin: 32px auto;
+    padding: 1px;
+  }
+
+  .hero-product-section .store-hero-media {
+    max-width: none;
+    min-height: 420px;
+    padding: 18px;
+  }
+
+  .hero-product-section .store-hero-media > img {
+    height: 232px;
+  }
+
+  .hero-image-card {
+    min-height: 420px;
+    padding: 22px;
+  }
+
+  .hero-image-card img {
+    height: 240px;
+  }
+
+  .hero-image-card b {
+    font-size: 26px;
   }
 
   .conversion-band article {
