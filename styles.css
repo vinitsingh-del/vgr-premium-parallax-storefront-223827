@@ -4039,12 +4039,13 @@ body {
 
 .home-page .hero-video-panel::after {
   background:
-    linear-gradient(90deg, rgba(15,15,15,0.92) 0%, rgba(6,107,107,0.76) 42%, rgba(15,15,15,0.48) 72%, rgba(15,15,15,0.78) 100%),
-    linear-gradient(180deg, rgba(15,15,15,0.2), rgba(15,15,15,0.86));
+    radial-gradient(circle at 42% 46%, rgba(24,196,196,0.13), transparent 34rem),
+    linear-gradient(90deg, rgba(15,15,15,0.64) 0%, rgba(6,107,107,0.53) 42%, rgba(15,15,15,0.34) 72%, rgba(15,15,15,0.55) 100%),
+    linear-gradient(180deg, rgba(15,15,15,0.14), rgba(15,15,15,0.6));
 }
 
 .home-page .hero-video-panel video {
-  filter: saturate(1.08) contrast(1.08) brightness(0.72);
+  filter: saturate(1.06) contrast(1.04) brightness(0.82);
 }
 
 .home-page .store-hero-copy {
