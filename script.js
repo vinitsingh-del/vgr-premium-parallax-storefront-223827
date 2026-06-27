@@ -1,3 +1,16 @@
+const preloader = document.querySelector("[data-preloader]");
+if (preloader) {
+  const hidePreloader = () => {
+    preloader.classList.add("is-hidden");
+    window.setTimeout(() => preloader.remove(), 700);
+  };
+  const startedAt = Date.now();
+  window.addEventListener("load", () => {
+    window.setTimeout(hidePreloader, Math.max(0, 620 - (Date.now() - startedAt)));
+  }, { once: true });
+  window.setTimeout(hidePreloader, 2400);
+}
+
 const images = [
   ["assets/hero-1-BiMT0yIW.png", "Hero"],
   ["assets/hero-2-HwV2gwU-.png", "Blade"],
