@@ -5932,3 +5932,57 @@ body {
   border-color: rgba(24,196,196,0.34);
   color: var(--brand-aqua);
 }
+
+/* PDP sticky CTA 10% size increase */
+.pdp-v2 .pdp-buy-bar {
+  grid-template-columns: 38px minmax(0, 1fr) 92px;
+  gap: 7px;
+  max-width: 495px;
+  padding: 7px 8px;
+}
+
+.pdp-v2 .pdp-buy-bar img {
+  width: 38px;
+  height: 38px;
+}
+
+.pdp-v2 .pdp-buy-bar small {
+  font-size: 8px;
+}
+
+.pdp-v2 .pdp-buy-bar b {
+  font-size: 16px;
+}
+
+.pdp-v2 .pdp-buy-bar del,
+.pdp-v2 .pdp-buy-bar span {
+  font-size: 8px;
+}
+
+.pdp-v2 .pdp-buy-bar button {
+  min-height: 36px;
+  padding: 10px 8px;
+  font-size: 10px;
+}
+
+@media (min-width: 640px) {
+  .pdp-v2 .pdp-buy-bar {
+    grid-template-columns: 51px minmax(0, 1fr) 117px;
+    padding: 10px;
+  }
+
+  .pdp-v2 .pdp-buy-bar img {
+    width: 51px;
+    height: 51px;
+  }
+
+  .pdp-v2 .pdp-buy-bar b {
+    font-size: 20px;
+  }
+
+  .pdp-v2 .pdp-buy-bar button {
+    min-height: 46px;
+    padding: 14px 12px;
+    font-size: 12px;
+  }
+}
