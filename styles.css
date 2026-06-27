@@ -5058,3 +5058,83 @@ body {
     animation: none;
   }
 }
+
+/* Home hero compact lower-left placement */
+.home-page .store-hero {
+  align-items: end;
+}
+
+.home-page .store-hero-copy {
+  align-self: end;
+  width: min(100%, 520px);
+  padding-block: 0 34px;
+  transform-origin: left bottom;
+}
+
+.home-page .store-hero-copy > span {
+  font-size: 8px;
+}
+
+.home-page .store-hero h1 {
+  max-width: 8.7ch;
+  font-size: clamp(42px, 10.8vw, 76px);
+  line-height: 0.88;
+}
+
+.home-page .store-hero p {
+  max-width: 36ch;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.home-page .hero-actions {
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.home-page .hero-actions a {
+  min-height: 34px;
+  padding-inline: 13px;
+  font-size: 11px;
+}
+
+@media (max-width: 639px) {
+  .home-page .store-hero {
+    min-height: 448px;
+    padding: 18px 16px 24px;
+  }
+
+  .home-page .store-hero-copy {
+    padding-bottom: 20px;
+  }
+
+  .home-page .store-hero h1 {
+    font-size: 42px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-page .store-hero {
+    min-height: 544px;
+    padding-left: max(34px, calc((100vw - 1180px) / 2));
+    padding-bottom: 46px;
+  }
+
+  .home-page .store-hero-copy {
+    padding-bottom: 0;
+  }
+
+  .home-page .store-hero h1 {
+    font-size: clamp(62px, 5.8vw, 94px);
+  }
+
+  .home-page .store-hero p {
+    font-size: 15px;
+  }
+
+  .home-page .hero-actions a {
+    min-height: 42px;
+    padding-inline: 20px;
+    font-size: 13px;
+  }
+}
