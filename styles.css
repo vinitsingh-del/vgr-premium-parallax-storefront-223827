@@ -3271,3 +3271,244 @@ footer img { width: auto; height: 32px; margin: 0 auto 8px; }
     transition: none;
   }
 }
+
+/* VGR official palette implementation */
+:root {
+  --brand: #0A9797;
+  --brand-deep: #066B6B;
+  --brand-aqua: #18C4C4;
+  --brand-red: #FF3B30;
+  --brand-gold: #D4AF37;
+  --matte-black: #0F0F0F;
+  --charcoal: #1F1F1F;
+  --paper: #F5F5F5;
+  --silver: #B8B8B8;
+  --brand-soft: rgba(24,196,196,0.1);
+  --ink: #0F0F0F;
+  --muted: #6f7474;
+  --line: rgba(184,184,184,0.28);
+  --soft: #F5F5F5;
+  --shadow: 0 24px 70px rgba(15,15,15,0.22);
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 6%, rgba(24,196,196,0.14), transparent 26rem),
+    linear-gradient(135deg, #0F0F0F, #1F1F1F 48%, #066B6B);
+}
+
+.offer-strip {
+  background: linear-gradient(90deg, var(--brand), var(--brand-aqua));
+}
+
+.pdp-v2,
+.cart-page {
+  background:
+    radial-gradient(circle at 86% 4%, rgba(24,196,196,0.16), transparent 25rem),
+    linear-gradient(180deg, var(--matte-black), var(--charcoal) 34%, #111818);
+}
+
+.pdp-v2 .topbar,
+.cart-page .topbar {
+  border-color: rgba(184,184,184,0.22);
+  background: rgba(15,15,15,0.9);
+  color: var(--paper);
+}
+
+.pdp-v2 .icon-button span,
+.cart-page .icon-button span {
+  background: var(--paper);
+}
+
+.pdp-v2 .breadcrumbs,
+.cart-page .breadcrumbs {
+  color: var(--silver);
+}
+
+.pdp-v2 .breadcrumbs strong,
+.cart-page .breadcrumbs strong {
+  color: var(--brand-aqua);
+}
+
+.pdp-v2 .pdp-gallery,
+.pdp-v2 .pdp-summary,
+.pdp-v2 .offer-panel,
+.pdp-v2 .emi-panel,
+.pdp-v2 .delivery-check,
+.pdp-v2 .bundle-section,
+.pdp-v2 .video-gallery,
+.pdp-v2 .reviews-section,
+.pdp-v2 .recently-viewed,
+.pdp-v2 .payment-section,
+.cart-page .cart-item,
+.cart-page .cart-addons,
+.cart-page .checkout-card {
+  border-color: rgba(184,184,184,0.18);
+  background: linear-gradient(145deg, rgba(31,31,31,0.94), rgba(15,15,15,0.9));
+  color: var(--paper);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.32);
+}
+
+.pdp-v2 .gallery-frame,
+.pdp-v2 .feature-icon-grid article,
+.pdp-v2 .bundle-row article,
+.pdp-v2 .review-cards article,
+.pdp-v2 .product-tile,
+.pdp-v2 .recent-row a,
+.pdp-v2 .payment-icons span,
+.cart-page .addon-grid label {
+  border-color: rgba(184,184,184,0.2);
+  background: #F5F5F5;
+  color: var(--matte-black);
+}
+
+.pdp-v2 .pdp-summary h1,
+.pdp-v2 .section-head h2,
+.pdp-v2 .feature-lab-head h2,
+.cart-page h1,
+.cart-page h2 {
+  color: var(--paper);
+}
+
+.pdp-category,
+.primary-buy,
+.checkout-card button,
+.buy-bar button,
+.cart span {
+  background: linear-gradient(90deg, var(--brand), var(--brand-aqua));
+  color: var(--paper);
+}
+
+.checkout-now,
+.purchase-signal,
+.review-dashboard {
+  background: var(--matte-black);
+  color: var(--paper);
+}
+
+.purchase-signal,
+.panel-head small,
+.section-head small,
+.feature-lab-head small,
+.drop-row span,
+.buy-bar small,
+.pdp-v2 .review-line span {
+  color: var(--brand-aqua);
+}
+
+.pdp-v2 .price-row span,
+.pdp-v2 .badges b:first-child,
+.pdp-v2 .product-tile > span,
+.pdp-v2 .cro-badges em:first-child {
+  border-color: var(--brand-red);
+  background: var(--brand-red);
+  color: var(--paper);
+}
+
+.pdp-v2 .badges b:last-child,
+.pdp-v2 .cro-badges em:last-child,
+.bundle-total b,
+.order-total b {
+  border-color: var(--brand-gold);
+  background: rgba(212,175,55,0.13);
+  color: var(--brand-gold);
+}
+
+.coupon-grid article {
+  border-color: var(--brand-aqua);
+  background: rgba(24,196,196,0.1);
+}
+
+.coupon-grid span {
+  background: var(--matte-black);
+  color: var(--brand-aqua);
+}
+
+.pdp-v2 .price-row strong,
+.pdp-v2 .bundle-row span,
+.pdp-v2 .product-tile strong,
+.cart-page .cart-item strong {
+  color: var(--brand-aqua);
+}
+
+.pdp-v2 .price-row del,
+.pdp-v2 .bundle-total del,
+.pdp-v2 .product-tile del,
+.cart-page .cart-item del {
+  color: var(--silver);
+}
+
+.pdp-v2 .trust-row span,
+.delivery-check input,
+.qty-control,
+.qty-control button,
+.qty-control output {
+  border-color: rgba(184,184,184,0.24);
+  background: rgba(245,245,245,0.96);
+  color: var(--matte-black);
+}
+
+.feature-lab {
+  border-color: rgba(24,196,196,0.35);
+  background:
+    linear-gradient(135deg, rgba(15,15,15,0.96), rgba(6,107,107,0.92)),
+    radial-gradient(circle at 78% 12%, rgba(24,196,196,0.32), transparent 26rem);
+}
+
+.feature-product {
+  border-color: rgba(24,196,196,0.3);
+  background: linear-gradient(150deg, rgba(31,31,31,0.72), rgba(6,107,107,0.28));
+}
+
+.feature-pin span {
+  border-color: var(--matte-black);
+  background: var(--brand-aqua);
+  box-shadow: 0 0 0 9px rgba(24,196,196,0.18), 0 0 34px rgba(24,196,196,0.74);
+}
+
+.feature-pin.is-active span {
+  background: var(--paper);
+  box-shadow: 0 0 0 11px rgba(10,151,151,0.34), 0 0 44px rgba(24,196,196,0.9);
+}
+
+.feature-glass-card {
+  border-color: rgba(184,184,184,0.2);
+  background: linear-gradient(135deg, rgba(31,31,31,0.88), rgba(6,107,107,0.42));
+}
+
+.feature-glass-card.is-visible {
+  opacity: 0.78;
+}
+
+.feature-glass-card.is-active {
+  border-color: rgba(24,196,196,0.82);
+  background: linear-gradient(135deg, rgba(10,151,151,0.62), rgba(31,31,31,0.88));
+  opacity: 1;
+  transition-delay: 0ms !important;
+  box-shadow: 0 18px 54px rgba(24,196,196,0.16);
+}
+
+.feature-glass-card > span,
+.feature-glass-card svg,
+.rating-score span {
+  color: var(--brand-aqua);
+}
+
+.feature-glass-card h3 {
+  color: var(--paper);
+}
+
+.feature-glass-card p {
+  color: rgba(245,245,245,0.78);
+}
+
+.pdp-v2 .pdp-buy-bar {
+  border-color: rgba(24,196,196,0.28);
+  background: rgba(245,245,245,0.9);
+}
+
+.pdp-v2 footer,
+.cart-page footer {
+  background: var(--matte-black);
+  color: var(--silver);
+}
