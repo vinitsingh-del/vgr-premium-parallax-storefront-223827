@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 84" role="img" aria-label="Zepto">
+  <rect width="260" height="84" rx="12" fill="#fff"/>
+  <rect x="25" y="18" width="210" height="48" rx="12" fill="#4b1388"/>
+  <text x="64" y="53" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900">zepto</text>
+  <path d="M183 28h24l-20 28h24" fill="none" stroke="#f8d706" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

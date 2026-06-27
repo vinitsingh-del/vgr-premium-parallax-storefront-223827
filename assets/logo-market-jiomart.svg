@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 84" role="img" aria-label="JioMart">
+  <rect width="260" height="84" rx="12" fill="#fff"/>
+  <circle cx="58" cy="42" r="28" fill="#0a4da2"/>
+  <text x="41" y="51" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">Jio</text>
+  <text x="96" y="52" fill="#e31e24" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800">Mart</text>
+</svg>
