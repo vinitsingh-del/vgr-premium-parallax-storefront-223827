@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-label="Battery lasts long review visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f0f0f"/>
+      <stop offset=".48" stop-color="#071f1d"/>
+      <stop offset="1" stop-color="#066B6B"/>
+    </linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18C4C4"/>
+      <stop offset="1" stop-color="#0A9797"/>
+    </linearGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#18C4C4" flood-opacity=".5"/>
+    </filter>
+  </defs>
+  <rect width="700" height="420" fill="url(#bg)"/>
+  <circle cx="550" cy="86" r="140" fill="#18C4C4" opacity=".12"/>
+  <circle cx="118" cy="330" r="110" fill="#D4AF37" opacity=".08"/>
+  <g opacity=".16" stroke="#18C4C4" stroke-width="1">
+    <path d="M48 78H652M48 150H652M48 222H652M48 294H652"/>
+    <path d="M106 36V384M204 36V384M302 36V384M400 36V384M498 36V384M596 36V384"/>
+  </g>
+  <g transform="translate(108 104)">
+    <rect x="0" y="0" width="282" height="174" rx="28" fill="#111818" stroke="#18C4C4" stroke-width="3"/>
+    <rect x="282" y="55" width="26" height="64" rx="8" fill="#18C4C4"/>
+    <rect x="24" y="24" width="214" height="126" rx="18" fill="#0f0f0f"/>
+    <rect x="38" y="38" width="160" height="98" rx="12" fill="url(#aqua)" filter="url(#glow)"/>
+    <text x="54" y="102" fill="#071f1d" font-family="Montserrat,Arial,sans-serif" font-size="44" font-weight="900">200</text>
+    <text x="151" y="102" fill="#071f1d" font-family="Montserrat,Arial,sans-serif" font-size="22" font-weight="900">MIN</text>
+  </g>
+  <g transform="translate(426 88)" filter="url(#glow)">
+    <rect x="58" y="28" width="78" height="212" rx="30" fill="#101313" stroke="#18C4C4" stroke-width="4"/>
+    <rect x="73" y="48" width="48" height="82" rx="22" fill="url(#aqua)"/>
+    <circle cx="97" cy="160" r="21" fill="#0f0f0f" stroke="#D4AF37" stroke-width="5"/>
+    <path d="M97 240 v42 M75 282 h44" stroke="#18C4C4" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <text x="40" y="62" fill="#D4AF37" font-family="Montserrat,Arial,sans-serif" font-size="18" font-weight="900" letter-spacing="4">LONG RUNTIME</text>
+  <text x="40" y="362" fill="#f5f5f5" font-family="Montserrat,Arial,sans-serif" font-size="34" font-weight="900">Battery lasts long</text>
+</svg>

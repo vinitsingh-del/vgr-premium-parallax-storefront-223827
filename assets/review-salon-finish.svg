@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-label="Salon ready finish review visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101313"/>
+      <stop offset=".6" stop-color="#0f0f0f"/>
+      <stop offset="1" stop-color="#064f4f"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B8B8B8"/>
+      <stop offset=".55" stop-color="#F5F5F5"/>
+      <stop offset="1" stop-color="#6f7474"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18C4C4"/>
+      <stop offset="1" stop-color="#0A9797"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="420" fill="url(#bg)"/>
+  <path d="M470 0 H700 V420 H560 C602 335 610 250 573 171 C551 125 509 72 470 0Z" fill="#18C4C4" opacity=".1"/>
+  <g opacity=".18" fill="none" stroke="#18C4C4" stroke-width="2">
+    <path d="M74 92 C166 42 280 46 372 102"/>
+    <path d="M62 126 C166 75 290 78 400 142"/>
+    <path d="M52 162 C160 112 306 116 440 194"/>
+  </g>
+  <g transform="translate(112 120)">
+    <path d="M44 92 C98 20 230 8 326 60 C282 102 210 124 134 126 C92 127 60 116 44 92Z" fill="#d8dedc" opacity=".25"/>
+    <path d="M66 132 C156 102 250 100 338 132" stroke="#f5f5f5" stroke-width="10" stroke-linecap="round" opacity=".38"/>
+    <g transform="translate(312 74) rotate(16)">
+      <rect x="0" y="62" width="186" height="60" rx="20" fill="#101313" stroke="#18C4C4" stroke-width="3"/>
+      <rect x="18" y="74" width="112" height="36" rx="14" fill="url(#teal)"/>
+      <path d="M135 66 L206 56 L206 126 L135 118Z" fill="url(#blade)"/>
+      <path d="M153 62 V124M168 60V122M183 58V120M198 57V119" stroke="#101313" stroke-width="5"/>
+      <circle cx="76" cy="92" r="15" fill="#0f0f0f" stroke="#D4AF37" stroke-width="5"/>
+    </g>
+  </g>
+  <rect x="44" y="48" width="164" height="36" fill="#0A9797"/>
+  <text x="60" y="72" fill="#f5f5f5" font-family="Montserrat,Arial,sans-serif" font-size="16" font-weight="900" letter-spacing="3">BARBER USE</text>
+  <text x="40" y="362" fill="#f5f5f5" font-family="Montserrat,Arial,sans-serif" font-size="34" font-weight="900">Salon-ready finish</text>
+</svg>
