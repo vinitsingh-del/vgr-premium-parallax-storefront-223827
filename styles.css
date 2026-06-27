@@ -3727,3 +3727,334 @@ body {
     font-size: 62px;
   }
 }
+
+/* Site-wide VGR dark premium polish */
+.home-page,
+.collection-page,
+.pdp-v2 {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(24,196,196,0.13), transparent 28rem),
+    radial-gradient(circle at 94% 20%, rgba(10,151,151,0.16), transparent 32rem),
+    linear-gradient(180deg, var(--matte-black), var(--charcoal) 36%, #101817);
+  color: var(--paper);
+}
+
+.home-page .topbar,
+.collection-page .topbar {
+  border-color: rgba(184,184,184,0.22);
+  background: rgba(15,15,15,0.9);
+  color: var(--paper);
+}
+
+.home-page .icon-button span,
+.collection-page .icon-button span {
+  background: var(--paper);
+}
+
+.home-page .brand img,
+.collection-page .brand img,
+.pdp-v2 .brand img {
+  filter: drop-shadow(0 0 12px rgba(24,196,196,0.28));
+}
+
+.home-page h1,
+.home-page h2,
+.collection-page h1,
+.collection-page h2,
+.pdp-v2 h1,
+.pdp-v2 h2 {
+  color: var(--paper);
+  letter-spacing: 0.015em;
+}
+
+.home-page p,
+.collection-page p,
+.pdp-v2 p {
+  color: rgba(245,245,245,0.72);
+}
+
+.store-hero,
+.collection-hero,
+.collection-promo,
+.parallax-showcase,
+.product-grid-section,
+.visual-wall,
+.marketplaces,
+.range {
+  background:
+    linear-gradient(135deg, rgba(31,31,31,0.92), rgba(6,107,107,0.34)),
+    radial-gradient(circle at 82% 16%, rgba(24,196,196,0.14), transparent 24rem);
+  border-color: rgba(24,196,196,0.24);
+}
+
+.store-hero,
+.collection-hero {
+  min-height: auto;
+  padding-block: 24px 34px;
+}
+
+.home-page .store-hero {
+  min-height: 620px;
+}
+
+.store-hero h1,
+.collection-hero h1 {
+  max-width: 8.5ch;
+  font-size: clamp(50px, 14vw, 88px);
+  line-height: 0.9;
+}
+
+.store-hero p,
+.collection-hero p,
+.station-copy p,
+.collection-promo p {
+  max-width: 28rem;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.store-hero-copy > span,
+.collection-hero span,
+.section-head small,
+.catalog-section .section-head small {
+  color: var(--brand-aqua);
+}
+
+.store-hero-media,
+.home-feature,
+.collection-promo,
+.category-rail a,
+.visual-wall div,
+.ai-product-card,
+.product-tile,
+.collection-category-grid a {
+  border-color: rgba(184,184,184,0.2);
+  background: linear-gradient(145deg, rgba(31,31,31,0.94), rgba(15,15,15,0.88));
+  color: var(--paper);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.24);
+}
+
+.store-hero-media img,
+.home-feature img,
+.category-rail img,
+.ai-product-visual img,
+.product-tile img,
+.visual-wall img,
+.collection-hero img,
+.collection-promo img,
+.collection-category-grid img {
+  object-fit: contain;
+  scale: 0.88;
+}
+
+.store-hero-media .hero-rotator,
+.home-page .store-hero-media img {
+  scale: 0.82;
+}
+
+.category-rail a {
+  min-width: 118px;
+}
+
+.category-rail img {
+  height: 82px;
+}
+
+.section-head h2,
+.catalog-section .section-head h2 {
+  font-size: clamp(32px, 9vw, 48px);
+  line-height: 0.95;
+}
+
+.section-head a,
+.filter-bar a,
+.hero-actions a,
+.bundle-section .section-head button,
+.reviews-section .section-head button {
+  border-color: var(--brand-aqua);
+  color: var(--paper);
+  background: rgba(10,151,151,0.18);
+}
+
+.hero-actions a:first-child,
+.section-head a:hover,
+.filter-bar a.active {
+  background: linear-gradient(90deg, var(--brand), var(--brand-aqua));
+  color: var(--paper);
+}
+
+.product-tile {
+  min-height: 0;
+}
+
+.product-tile img {
+  height: 180px;
+  padding: 16px;
+  background: #F5F5F5;
+}
+
+.product-tile b {
+  min-height: auto;
+  color: var(--paper);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.product-tile p {
+  color: rgba(245,245,245,0.72);
+}
+
+.product-tile strong {
+  color: var(--brand-aqua);
+  font-size: 18px;
+}
+
+.ai-product-copy b,
+.ai-product-copy strong {
+  color: var(--paper);
+  font-size: 20px;
+}
+
+.ai-product-copy p {
+  color: rgba(245,245,245,0.68);
+  font-size: 12px;
+}
+
+.visual-wall span {
+  color: rgba(245,245,245,0.9);
+  font-size: clamp(44px, 13vw, 78px);
+}
+
+.collection-category-grid a {
+  border: 1px solid rgba(184,184,184,0.2);
+}
+
+.collection-category-grid b,
+.collection-category-grid span {
+  color: var(--paper);
+}
+
+.catalog-section {
+  background: transparent;
+}
+
+.pdp-v2 .pdp-summary h1 {
+  font-size: clamp(44px, 12vw, 86px);
+  line-height: 0.9;
+}
+
+.pdp-v2 .pdp-summary,
+.pdp-v2 .offer-panel,
+.pdp-v2 .emi-panel,
+.pdp-v2 .delivery-check,
+.pdp-v2 .bundle-section,
+.pdp-v2 .video-gallery,
+.pdp-v2 .reviews-section,
+.pdp-v2 .recently-viewed,
+.pdp-v2 .payment-section {
+  border-color: rgba(24,196,196,0.2);
+}
+
+.pdp-v2 .gallery-frame img {
+  scale: 0.9;
+}
+
+.pdp-v2 .bundle-row img,
+.pdp-v2 .recent-row img,
+.cart-page .cart-item img {
+  scale: 0.86;
+}
+
+@media (max-width: 639px) {
+  .home-page .store-hero,
+  .collection-hero {
+    padding-inline: 16px;
+  }
+
+  .home-page .store-hero {
+    min-height: 560px;
+  }
+
+  .store-hero h1,
+  .collection-hero h1 {
+    font-size: 52px;
+  }
+
+  .store-hero-media,
+  .home-page .store-hero-media {
+    min-height: 300px;
+  }
+
+  .store-hero-media .hero-rotator,
+  .home-page .store-hero-media img {
+    scale: 0.74;
+  }
+
+  .product-tile img {
+    height: 144px;
+    scale: 0.82;
+  }
+
+  .ai-product-visual img {
+    height: 126px;
+    scale: 0.84;
+  }
+
+  .section-head {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .section-head h2 {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-page .store-hero {
+    min-height: 680px;
+  }
+
+  .store-hero h1,
+  .collection-hero h1 {
+    font-size: clamp(76px, 7.2vw, 118px);
+  }
+
+  .store-hero-media .hero-rotator,
+  .home-page .store-hero-media img,
+  .collection-hero img,
+  .collection-promo img {
+    scale: 0.78;
+  }
+
+  .product-tile img {
+    height: 210px;
+    scale: 0.84;
+  }
+
+  .pdp-v2 .gallery-frame img {
+    scale: 0.84;
+  }
+}
+
+.home-page .hero-video-panel::after {
+  background:
+    linear-gradient(90deg, rgba(15,15,15,0.92) 0%, rgba(6,107,107,0.76) 42%, rgba(15,15,15,0.48) 72%, rgba(15,15,15,0.78) 100%),
+    linear-gradient(180deg, rgba(15,15,15,0.2), rgba(15,15,15,0.86));
+}
+
+.home-page .hero-video-panel video {
+  filter: saturate(1.08) contrast(1.08) brightness(0.72);
+}
+
+.home-page .store-hero-copy {
+  text-shadow: 0 18px 42px rgba(0,0,0,0.32);
+}
+
+.home-page .store-hero-copy p {
+  color: rgba(245,245,245,0.78);
+}
+
+.home-page .hero-product-section {
+  background: var(--matte-black);
+}
