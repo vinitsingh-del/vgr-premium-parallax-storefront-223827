@@ -4058,3 +4058,111 @@ body {
 .home-page .hero-product-section {
   background: var(--matte-black);
 }
+
+/* Numbered product feature navigator */
+.feature-product {
+  perspective: 1100px;
+}
+
+.feature-product img {
+  animation: featureToolRotate 4.8s ease-in-out infinite !important;
+  transform-origin: 52% 44%;
+}
+
+.feature-pin {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.feature-pin span {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(245,245,245,0.78);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 30%, #f5f5f5 0 16%, transparent 17%),
+    linear-gradient(145deg, rgba(24,196,196,0.98), rgba(6,107,107,0.96));
+  color: var(--paper);
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 950;
+  line-height: 1;
+  box-shadow:
+    0 0 0 7px rgba(24,196,196,0.12),
+    0 16px 34px rgba(0,0,0,0.24);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, color 0.24s ease;
+}
+
+.feature-pin::after {
+  content: none;
+}
+
+.feature-pin:is(:hover, :focus-visible) span,
+.feature-pin.is-active span {
+  border-color: var(--brand-aqua);
+  background:
+    radial-gradient(circle at 35% 30%, #f5f5f5 0 13%, transparent 14%),
+    linear-gradient(145deg, #0A9797, #18C4C4);
+  color: var(--matte-black);
+  transform: scale(1.12);
+  box-shadow:
+    0 0 0 9px rgba(24,196,196,0.2),
+    0 0 36px rgba(24,196,196,0.72),
+    0 18px 44px rgba(0,0,0,0.28);
+}
+
+@keyframes featureToolRotate {
+  0%, 100% {
+    transform: translate3d(0, var(--feature-lift, 0px), 0) rotateZ(0deg) rotateY(0deg) scale(0.96);
+  }
+  18% {
+    transform: translate3d(0.5px, calc(var(--feature-lift, 0px) - 1px), 0) rotateZ(2.4deg) rotateY(6deg) scale(0.96);
+  }
+  38% {
+    transform: translate3d(-0.5px, calc(var(--feature-lift, 0px) + 1px), 0) rotateZ(-2.7deg) rotateY(-7deg) scale(0.96);
+  }
+  58% {
+    transform: translate3d(0.4px, var(--feature-lift, 0px), 0) rotateZ(1.7deg) rotateY(4deg) scale(0.96);
+  }
+  78% {
+    transform: translate3d(-0.4px, calc(var(--feature-lift, 0px) - 0.5px), 0) rotateZ(-1.4deg) rotateY(-3deg) scale(0.96);
+  }
+}
+
+@media (min-width: 760px) {
+  .feature-pin span {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  @keyframes featureToolRotate {
+    0%, 100% {
+      transform: translate3d(0, var(--feature-lift, 0px), 0) rotateZ(0deg) rotateY(0deg) scale(0.94);
+    }
+    18% {
+      transform: translate3d(0.7px, calc(var(--feature-lift, 0px) - 1px), 0) rotateZ(2.8deg) rotateY(7deg) scale(0.94);
+    }
+    38% {
+      transform: translate3d(-0.7px, calc(var(--feature-lift, 0px) + 1px), 0) rotateZ(-3deg) rotateY(-8deg) scale(0.94);
+    }
+    58% {
+      transform: translate3d(0.5px, var(--feature-lift, 0px), 0) rotateZ(1.9deg) rotateY(5deg) scale(0.94);
+    }
+    78% {
+      transform: translate3d(-0.5px, calc(var(--feature-lift, 0px) - 0.5px), 0) rotateZ(-1.6deg) rotateY(-4deg) scale(0.94);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-product img {
+    animation: none !important;
+  }
+}

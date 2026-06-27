@@ -274,6 +274,7 @@ if (featureLab) {
   const pins = [...featureLab.querySelectorAll("[data-feature-pin]")];
   const cards = [...featureLab.querySelectorAll("[data-feature-card]")];
   const productImage = featureLab.querySelector(".feature-product img");
+  let manualFeatureUntil = 0;
   const setFeature = (index) => {
     pins.forEach((pin) => pin.classList.toggle("is-active", Number(pin.dataset.featurePin) === index));
     cards.forEach((card) => card.classList.toggle("is-active", Number(card.dataset.featureCard) === index));
@@ -281,7 +282,13 @@ if (featureLab) {
   };
 
   pins.forEach((pin) => {
-    pin.addEventListener("click", () => setFeature(Number(pin.dataset.featurePin)));
+    pin.addEventListener("click", () => {
+      const index = Number(pin.dataset.featurePin);
+      manualFeatureUntil = Date.now() + 1100;
+      setFeature(index);
+      cards[index]?.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.setTimeout(() => setFeature(index), 650);
+    });
   });
 
   const featureObserver = new IntersectionObserver((entries) => {
@@ -289,6 +296,7 @@ if (featureLab) {
       if (!entry.isIntersecting) return;
       const card = entry.target;
       card.classList.add("is-visible");
+      if (Date.now() < manualFeatureUntil) return;
       setFeature(Number(card.dataset.featureCard));
     });
   }, { threshold: 0.58 });
