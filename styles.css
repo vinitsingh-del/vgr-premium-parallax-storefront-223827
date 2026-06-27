@@ -5769,3 +5769,12 @@ body {
     font-size: 9px;
   }
 }
+
+/* PDP header-to-hero flush alignment */
+.pdp-v2 > .breadcrumbs {
+  display: none;
+}
+
+.pdp-v2 > .pdp-hero {
+  padding-top: 0;
+}
