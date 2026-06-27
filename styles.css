@@ -4887,3 +4887,173 @@ body {
     animation: none !important;
   }
 }
+
+/* PDP title compression and gold moving review rail */
+.pdp-v2 .pdp-hero {
+  gap: 14px;
+  padding-block: 14px 22px;
+}
+
+.pdp-v2 .pdp-summary {
+  gap: 10px;
+  padding: 15px;
+}
+
+.pdp-v2 .pdp-title-row {
+  align-items: start;
+}
+
+.pdp-v2 .pdp-summary h1 {
+  display: grid;
+  gap: 2px;
+  max-width: 9.8ch;
+  margin: 0;
+  overflow-wrap: normal;
+  color: var(--paper);
+  font-size: clamp(47px, 12vw, 88px);
+  line-height: 0.86;
+}
+
+.pdp-v2 .pdp-summary h1 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.pdp-v2 .rating-action {
+  align-items: start;
+  gap: 10px;
+}
+
+.pdp-v2 .rating-action a {
+  min-height: 38px;
+  padding-inline: 14px;
+  font-size: 10px;
+}
+
+.pdp-v2 .purchase-signal {
+  margin: 0;
+  padding: 13px 16px;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.gold-review-ticker {
+  position: sticky;
+  top: 72px;
+  z-index: 12;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,0.42);
+  background:
+    linear-gradient(90deg, rgba(212,175,55,0.18), rgba(15,15,15,0.92) 22%, rgba(212,175,55,0.14)),
+    var(--matte-black);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.26);
+}
+
+.gold-review-ticker::before,
+.gold-review-ticker::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  z-index: 2;
+  width: 34px;
+  pointer-events: none;
+}
+
+.gold-review-ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--matte-black), transparent);
+}
+
+.gold-review-ticker::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--matte-black), transparent);
+}
+
+.gold-review-ticker > div {
+  display: flex;
+  width: max-content;
+  gap: 10px;
+  padding: 9px 10px;
+  animation: goldReviewMove 22s linear infinite;
+}
+
+.gold-review-ticker article {
+  display: grid;
+  grid-template-columns: auto auto minmax(120px, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 270px;
+  padding: 9px 10px;
+  border: 1px solid rgba(212,175,55,0.34);
+  background: rgba(245,245,245,0.06);
+  color: var(--paper);
+}
+
+.gold-review-ticker span {
+  color: var(--brand-gold);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.gold-review-ticker b {
+  color: var(--brand-gold);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.gold-review-ticker p {
+  margin: 0;
+  overflow: hidden;
+  color: rgba(245,245,245,0.86);
+  font-size: 11px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes goldReviewMove {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 639px) {
+  .pdp-v2 .pdp-summary h1 {
+    max-width: 8.2ch;
+    font-size: clamp(43px, 10.6vw, 52px);
+    line-height: 0.88;
+  }
+
+  .pdp-v2 .rating-action {
+    display: grid;
+  }
+
+  .gold-review-ticker {
+    top: 58px;
+  }
+
+  .gold-review-ticker article {
+    min-width: 246px;
+  }
+}
+
+@media (min-width: 760px) {
+  .pdp-v2 .pdp-summary {
+    padding: 22px;
+  }
+
+  .pdp-v2 .pdp-summary h1 {
+    max-width: 10.2ch;
+    font-size: clamp(68px, 5.7vw, 94px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-review-ticker > div {
+    animation: none;
+  }
+}
