@@ -48,6 +48,7 @@ images.forEach(([src], index) => {
 function setActive(index) {
   active = index;
   frame.classList.add("is-changing");
+  frame.classList.remove("is-zooming");
   window.setTimeout(() => {
     hero.src = images[index][0];
     hero.alt = `VL-786 ${images[index][1].toLowerCase()} view`;
@@ -60,11 +61,19 @@ function setActive(index) {
       bar.classList.toggle("active", barIndex === index);
     });
     frame.classList.remove("is-changing");
+    void hero.offsetWidth;
+    frame.classList.add("is-zooming");
   }, 120);
 }
 
 document.querySelector(".gallery-frame").addEventListener("click", () => {
   setActive((active + 1) % images.length);
+});
+
+hero.addEventListener("animationend", (event) => {
+  if (event.animationName === "pdpGalleryZoomIn") {
+    frame.classList.remove("is-zooming");
+  }
 });
 
 setActive(0);
