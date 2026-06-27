@@ -4678,3 +4678,212 @@ body {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
+
+/* PDP feature lab revision: free product, red micro markers, page scroll motion */
+.pdp-v2 .pdp-hero,
+.pdp-v2 .pdp-features,
+.pdp-v2 .bundle-section,
+.pdp-v2 .video-gallery,
+.pdp-v2 .reviews-section,
+.pdp-v2 .product-grid-section,
+.pdp-v2 .recently-viewed,
+.pdp-v2 .payment-section,
+.pdp-v2 footer {
+  animation: pdpSectionReveal both ease-out;
+  animation-timeline: view();
+  animation-range: entry 0% cover 32%;
+}
+
+.pdp-v2 .feature-lab {
+  overflow: clip;
+}
+
+.pdp-v2 .feature-product {
+  min-height: 420px;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.pdp-v2 .feature-product::before {
+  content: "";
+  position: absolute;
+  inset: 9% 13%;
+  z-index: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(24,196,196,0.28), transparent 56%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 72%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.pdp-v2 .feature-product img {
+  z-index: 3;
+  width: min(58%, 214px);
+  max-height: 430px;
+  animation: featureToolOrbit 5.8s ease-in-out infinite !important;
+  filter: drop-shadow(0 42px 42px rgba(0,0,0,0.34));
+  scale: 1;
+}
+
+.pdp-v2 .feature-scan {
+  display: none;
+}
+
+.pdp-v2 .feature-pin {
+  width: 28px;
+  height: 28px;
+  z-index: 8;
+}
+
+.pdp-v2 .feature-pin span {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 1px solid rgba(245,245,245,0.88);
+  border-radius: 999px;
+  background: var(--brand-red);
+  color: transparent;
+  font-size: 0;
+  box-shadow:
+    0 0 0 3px rgba(255,59,48,0.1),
+    0 0 14px rgba(255,59,48,0.84);
+  animation: featureRedBlink 1.05s steps(1, end) infinite;
+}
+
+.pdp-v2 .feature-pin::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(255,59,48,0.24);
+  border-radius: 999px;
+  animation: redDotPulse 1.5s ease-out infinite;
+}
+
+.pdp-v2 .feature-pin:is(:hover, :focus-visible) span,
+.pdp-v2 .feature-pin.is-active span {
+  background: var(--brand-red);
+  color: transparent;
+  transform: scale(1.22);
+  box-shadow:
+    0 0 0 4px rgba(255,59,48,0.18),
+    0 0 22px rgba(255,59,48,1);
+}
+
+.pdp-v2 .feature-pin:nth-of-type(2) span,
+.pdp-v2 .feature-pin:nth-of-type(2)::after {
+  animation-delay: 0.18s;
+}
+
+.pdp-v2 .feature-pin:nth-of-type(3) span,
+.pdp-v2 .feature-pin:nth-of-type(3)::after {
+  animation-delay: 0.36s;
+}
+
+.pdp-v2 .feature-pin:nth-of-type(4) span,
+.pdp-v2 .feature-pin:nth-of-type(4)::after {
+  animation-delay: 0.54s;
+}
+
+.pdp-v2 .pdp-gallery,
+.pdp-v2 .pdp-summary,
+.pdp-v2 .feature-glass-card,
+.pdp-v2 .bundle-row article,
+.pdp-v2 .video-gallery article,
+.pdp-v2 .review-cards article,
+.pdp-v2 .product-tile,
+.pdp-v2 .recent-row a,
+.pdp-v2 .payment-icons span {
+  animation: pdpCardReveal both cubic-bezier(0.2, 0.78, 0.2, 1);
+  animation-timeline: view();
+  animation-range: entry 0% cover 28%;
+}
+
+@keyframes featureToolOrbit {
+  0%, 100% {
+    transform: translate3d(0, var(--feature-lift, 0px), 0) rotateZ(0deg) scale(0.96);
+  }
+  25% {
+    transform: translate3d(9px, calc(var(--feature-lift, 0px) - 7px), 0) rotateZ(2.1deg) scale(0.96);
+  }
+  50% {
+    transform: translate3d(0, calc(var(--feature-lift, 0px) - 13px), 0) rotateZ(0deg) scale(0.96);
+  }
+  75% {
+    transform: translate3d(-9px, calc(var(--feature-lift, 0px) - 7px), 0) rotateZ(-2.1deg) scale(0.96);
+  }
+}
+
+@keyframes featureRedBlink {
+  0%, 48%, 100% { opacity: 1; }
+  49%, 82% { opacity: 0.25; }
+}
+
+@keyframes redDotPulse {
+  to {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes pdpSectionReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes pdpCardReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (min-width: 760px) {
+  .pdp-v2 .feature-product {
+    min-height: 560px;
+  }
+
+  .pdp-v2 .feature-product img {
+    width: min(48%, 228px);
+    max-height: 492px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdp-v2 .pdp-hero,
+  .pdp-v2 .pdp-features,
+  .pdp-v2 .bundle-section,
+  .pdp-v2 .video-gallery,
+  .pdp-v2 .reviews-section,
+  .pdp-v2 .product-grid-section,
+  .pdp-v2 .recently-viewed,
+  .pdp-v2 .payment-section,
+  .pdp-v2 footer,
+  .pdp-v2 .pdp-gallery,
+  .pdp-v2 .pdp-summary,
+  .pdp-v2 .feature-glass-card,
+  .pdp-v2 .bundle-row article,
+  .pdp-v2 .video-gallery article,
+  .pdp-v2 .review-cards article,
+  .pdp-v2 .product-tile,
+  .pdp-v2 .recent-row a,
+  .pdp-v2 .payment-icons span,
+  .pdp-v2 .feature-product img,
+  .pdp-v2 .feature-pin span,
+  .pdp-v2 .feature-pin::after {
+    animation: none !important;
+  }
+}
