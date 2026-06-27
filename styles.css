@@ -3600,3 +3600,130 @@ body {
     animation: none !important;
   }
 }
+
+/* Feature lab polish: zoomed-out product and cleaner typography */
+.feature-lab {
+  padding-block: 22px 24px;
+}
+
+.feature-lab-head {
+  gap: 8px;
+}
+
+.feature-lab-head small {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+
+.feature-lab-head h2 {
+  max-width: 12ch;
+  font-size: clamp(36px, 10vw, 58px);
+  line-height: 0.94;
+}
+
+.feature-lab-stage {
+  gap: 14px;
+}
+
+.feature-product {
+  min-height: 430px;
+  background:
+    radial-gradient(circle at 50% 55%, rgba(24,196,196,0.18), transparent 52%),
+    linear-gradient(150deg, rgba(31,31,31,0.72), rgba(6,107,107,0.22));
+}
+
+.feature-product img {
+  width: min(48%, 178px);
+  max-height: 382px;
+  scale: 0.94;
+}
+
+.feature-pin {
+  width: 38px;
+  height: 38px;
+}
+
+.feature-pin span {
+  width: 13px;
+  height: 13px;
+}
+
+.feature-pin::after {
+  inset: 6px;
+}
+
+.feature-glass-stack {
+  gap: 10px;
+}
+
+.feature-glass-card {
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 12px;
+  min-height: 116px;
+  padding: 10px 12px;
+}
+
+.feature-crop {
+  width: 78px;
+  height: 96px;
+  background-size: 225px auto;
+}
+
+.feature-glass-card svg {
+  width: 20px;
+  height: 20px;
+}
+
+.feature-glass-card h3 {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.feature-glass-card p {
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.feature-glass-card > span {
+  font-size: 10px;
+}
+
+@media (min-width: 760px) {
+  .feature-lab {
+    padding: 30px;
+  }
+
+  .feature-lab-stage {
+    grid-template-columns: minmax(320px, 0.86fr) minmax(420px, 1.14fr);
+    gap: 26px;
+  }
+
+  .feature-product {
+    min-height: 560px;
+  }
+
+  .feature-product img {
+    width: min(44%, 205px);
+    max-height: 430px;
+    scale: 0.96;
+  }
+
+  .feature-glass-stack {
+    padding-top: 10px;
+  }
+
+  .feature-glass-card {
+    min-height: 118px;
+    padding: 12px;
+  }
+}
+
+@media (min-width: 1180px) {
+  .feature-lab-head {
+    grid-template-columns: 0.64fr 1fr;
+  }
+
+  .feature-lab-head h2 {
+    font-size: 62px;
+  }
+}
