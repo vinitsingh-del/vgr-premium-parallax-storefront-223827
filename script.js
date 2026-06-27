@@ -268,3 +268,33 @@ if (pincodeInput && pincodeButton && pincodeResult) {
     if (event.key === "Enter") checkPincode();
   });
 }
+
+const featureLab = document.querySelector("[data-feature-lab]");
+if (featureLab) {
+  const pins = [...featureLab.querySelectorAll("[data-feature-pin]")];
+  const cards = [...featureLab.querySelectorAll("[data-feature-card]")];
+  const productImage = featureLab.querySelector(".feature-product img");
+  const setFeature = (index) => {
+    pins.forEach((pin) => pin.classList.toggle("is-active", Number(pin.dataset.featurePin) === index));
+    cards.forEach((card) => card.classList.toggle("is-active", Number(card.dataset.featureCard) === index));
+    if (productImage) productImage.style.setProperty("--feature-lift", `${index * -3}px`);
+  };
+
+  pins.forEach((pin) => {
+    pin.addEventListener("click", () => setFeature(Number(pin.dataset.featurePin)));
+  });
+
+  const featureObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const card = entry.target;
+      card.classList.add("is-visible");
+      setFeature(Number(card.dataset.featureCard));
+    });
+  }, { threshold: 0.58 });
+
+  cards.forEach((card, index) => {
+    card.style.transitionDelay = `${Math.min(index * 70, 210)}ms`;
+    featureObserver.observe(card);
+  });
+}
