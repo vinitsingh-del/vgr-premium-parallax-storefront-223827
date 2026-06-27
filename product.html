@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="app-shell product-page">
+    <main class="app-shell product-page pdp-v2">
       <div class="offer-strip" aria-label="Store offers">
         <div class="marquee">
-          <span>Free Express Shipping ₹999+</span><b>•</b><span>1+1 Year Warranty</span><b>•</b><span>10% Off · Code VGR10</span><b>•</b><span>7-Day Replacement</span><b>•</b>
-          <span>Free Express Shipping ₹999+</span><b>•</b><span>1+1 Year Warranty</span><b>•</b><span>10% Off · Code VGR10</span><b>•</b><span>7-Day Replacement</span><b>•</b>
+          <span>5% OFF on all prepaid orders</span><b>•</b><span>Free Express Shipping ₹999+</span><b>•</b><span>1+1 Year Warranty</span><b>•</b><span>7-Day Replacement</span><b>•</b>
+          <span>5% OFF on all prepaid orders</span><b>•</b><span>Free Express Shipping ₹999+</span><b>•</b><span>1+1 Year Warranty</span><b>•</b><span>7-Day Replacement</span><b>•</b>
         </div>
       </div>
 
@@ -32,128 +32,178 @@
           <button aria-label="Account">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4.8 21a7.2 7.2 0 0 1 14.4 0"></path></svg>
           </button>
-          <button class="cart" aria-label="Cart">
+          <a class="cart" href="cart.html" aria-label="Cart">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1.2 12H4.8L6 8Z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
             <span>1</span>
-          </button>
+          </a>
         </nav>
       </header>
 
-      <div class="breadcrumbs" id="top">Home <span>/</span> Hair Clippers <span>/</span> <strong>VL-786</strong></div>
+      <div class="breadcrumbs" id="top">Home <span>/</span> Hair Clipper <span>/</span> <strong>VL-786</strong></div>
 
-      <section class="hero">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="drop-row">
-          <span><i></i>Live · Limited Drop</span>
-          <code id="gallery-count">01 / 10</code>
+      <section class="pdp-hero">
+        <div class="pdp-gallery">
+          <div class="drop-row">
+            <span><i></i>Best Seller</span>
+            <code id="gallery-count">01 / 10</code>
+          </div>
+          <div class="gallery-frame">
+            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+            <div class="badges"><b>Save 54%</b><b>Limited</b></div>
+            <button class="zoom" aria-label="Zoom product image">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.2 16.2 4.3 4.3"></path></svg>
+            </button>
+            <img id="hero-image" src="assets/hero-1-BiMT0yIW.png" alt="VL-786 green clipper hero view">
+            <div class="image-meta">
+              <div><small>View</small><strong id="view-name">Hero</strong></div>
+              <code>Tap to rotate</code>
+            </div>
+          </div>
+          <div class="progress" aria-hidden="true"></div>
+          <div class="thumbs" aria-label="Product image views"></div>
         </div>
 
-        <div class="gallery-frame">
-          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-          <div class="badges"><b>Save 54%</b><b>Limited</b></div>
-          <button class="zoom" aria-label="Zoom product image">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.2 16.2 4.3 4.3"></path></svg>
-          </button>
-          <img id="hero-image" src="assets/hero-1-BiMT0yIW.png" alt="VL-786 green clipper hero view">
-          <div class="image-meta">
-            <div><small>View</small><strong id="view-name">Hero</strong></div>
-            <code>ƒ/2.8 · 1:1</code>
+        <article class="pdp-summary">
+          <div class="pdp-title-row">
+            <span class="pdp-category">Hair Clipper</span>
+            <button class="share-button" type="button" data-share-product>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.7 10.7 15.3 6.3M8.7 13.3l6.6 4.4"></path></svg>
+              Share
+            </button>
+          </div>
+          <h1>VGR VL-786 Pro Hair Clipper</h1>
+          <div class="rating-action">
+            <div class="review-line">
+              <span>★★★★★</span>
+              <b>4.8</b>
+              <em>2,431 reviews</em>
+            </div>
+            <a href="#reviews">Write a Review</a>
+          </div>
+          <p class="purchase-signal">9K+ customers purchased in the last 7 days</p>
+
+          <div class="price-qty-row">
+            <div class="price-row">
+              <strong>₹2,299</strong>
+              <del>₹4,999</del>
+              <span>54% OFF</span>
+            </div>
+            <div class="qty-control" aria-label="Quantity selector">
+              <button type="button" data-qty-minus>-</button>
+              <output data-qty-value>1</output>
+              <button type="button" data-qty-plus>+</button>
+            </div>
+          </div>
+
+          <div class="pdp-actions">
+            <button class="primary-buy" type="button">Add to Cart</button>
+            <a class="checkout-now" href="cart.html">Buy Now</a>
+          </div>
+
+          <section class="offer-panel" aria-label="Available coupons">
+            <div class="panel-head"><small>Coupons & Offers</small><b>Apply at checkout</b></div>
+            <div class="coupon-grid">
+              <article><span>VGR10</span><p>Extra 10% OFF on grooming tools above ₹1,999.</p></article>
+              <article><span>PREPAID5</span><p>5% OFF on all prepaid orders.</p></article>
+            </div>
+          </section>
+
+          <section class="emi-panel">
+            <div><small>No Cost EMI</small><b>From ₹767/month</b></div>
+            <p>Available on leading credit cards, debit cards, and select wallets.</p>
+          </section>
+
+          <section class="delivery-check">
+            <label for="pincode">Check delivery TAT</label>
+            <div>
+              <input id="pincode" data-pincode-input inputmode="numeric" maxlength="6" placeholder="Enter pincode">
+              <button type="button" data-pincode-check>Check</button>
+            </div>
+            <p data-pincode-result>Delivery estimate and availability will appear here.</p>
+          </section>
+
+          <div class="trust-row pdp-trust">
+            <span>COD Available</span>
+            <span>Secure Checkout</span>
+            <span>Fast Dispatch</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="pdp-features">
+        <div class="section-head"><div><small>Key Features</small><h2>Cut clean. Charge fast. Stay ready.</h2></div></div>
+        <div class="feature-icon-grid">
+          <article><svg viewBox="0 0 24 24"><path d="m4 20 16-16M14 4l6 6M5 15l4 4M3 21l3-1 1-3"></path></svg><b>Titanium-Coated Blade</b><p>Sharp, smooth cutting for close trims and fades.</p></article>
+          <article><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"></path></svg><b>7000 RPM Motor</b><p>Strong grooming performance for dense hair.</p></article>
+          <article><svg viewBox="0 0 24 24"><rect x="3" y="7" width="16" height="10" rx="2"></rect><path d="M21 11v2M7 11h5"></path></svg><b>200 Min Runtime</b><p>Long battery backup for home and salon use.</p></article>
+          <article><svg viewBox="0 0 24 24"><path d="M8 7h8M9 17h6M12 7v10M5 10h14M5 14h14"></path></svg><b>Guide Combs Included</b><p>Multiple length settings for controlled styling.</p></article>
+        </div>
+      </section>
+
+      <section class="bundle-section">
+        <div class="section-head"><div><small>Frequently Bought Together</small><h2>Build the full grooming setup</h2></div><button>Add all to cart</button></div>
+        <div class="bundle-row">
+          <article><img src="assets/hero-1-BiMT0yIW.png" alt=""><b>VL-786 Pro Clipper</b><span>₹2,299</span></article>
+          <i>+</i>
+          <article><img src="assets/official-02.webp" alt=""><b>Rosso Trimmer</b><span>₹1,599</span></article>
+          <i>+</i>
+          <article><img src="assets/official-11.webp" alt=""><b>Foil Shaver</b><span>₹2,899</span></article>
+        </div>
+        <div class="bundle-total"><span>Bundle price</span><b>₹6,499</b><del>₹9,497</del></div>
+      </section>
+
+      <section class="video-gallery">
+        <div class="section-head"><div><small>Instagram Video Gallery</small><h2>Watch it in real routines</h2></div></div>
+        <div class="reel-grid">
+          <article><img src="assets/inuse-1-oU3tZDZ7.jpg" alt=""><span>Fade routine</span></article>
+          <article><img src="assets/inuse-2-BR5Cgjst.jpg" alt=""><span>Barber chair demo</span></article>
+          <article><img src="assets/inuse-3-BcjpAI4H.jpg" alt=""><span>Close cut finish</span></article>
+          <article><img src="assets/feat-banner-CjtGeQxt.jpg" alt=""><span>Product walkthrough</span></article>
+        </div>
+      </section>
+
+      <section class="reviews-section" id="reviews">
+        <div class="section-head"><div><small>Customer Reviews</small><h2>Rated by verified buyers</h2></div><button>Write a Review</button></div>
+        <div class="review-dashboard">
+          <div class="rating-score"><b>4.8</b><span>★★★★★</span><p>Based on 2,431 reviews</p></div>
+          <div class="rating-bars">
+            <p><span>5 star</span><i><b style="width: 86%"></b></i><em>86%</em></p>
+            <p><span>4 star</span><i><b style="width: 10%"></b></i><em>10%</em></p>
+            <p><span>3 star</span><i><b style="width: 3%"></b></i><em>3%</em></p>
+            <p><span>2 star</span><i><b style="width: 1%"></b></i><em>1%</em></p>
           </div>
         </div>
-
-        <div class="progress" aria-hidden="true"></div>
-        <div class="thumbs" aria-label="Product image views"></div>
-      </section>
-
-      <section class="product-copy">
-        <div class="review-line">
-          <span>★★★★★</span>
-          <b>4.8</b>
-          <em>2,431 reviews</em>
-        </div>
-        <h1>VGR VL-786 Pro Hair Clipper</h1>
-        <p>Green limited edition. Titanium blade. 7000 RPM.</p>
-        <div class="cro-strip">
-          <span>Ships Today</span>
-          <span>COD Available</span>
-          <span>7-Day Replacement</span>
-        </div>
-        <div class="price-row">
-          <strong>₹2,299</strong>
-          <del>₹4,999</del>
-          <span>54% OFF</span>
-        </div>
-        <div class="trust-row">
-          <span>Free shipping</span>
-          <span>COD available</span>
-          <span>2-yr warranty</span>
+        <div class="review-filters"><button>All</button><button>Photos</button><button>Videos</button><button>Barber Use</button></div>
+        <div class="review-cards">
+          <article><img src="assets/inuse-2-BR5Cgjst.jpg" alt=""><b>Clean cutting power</b><p>Used it for weekly trims. Blade feels smooth and the battery backup is strong.</p><span>Verified Purchase</span></article>
+          <article><img src="assets/feat-runtime-DuMu91v2.jpg" alt=""><b>Battery lasts long</b><p>Good grip, clear display, and quick charging. Works well for home grooming.</p><span>Verified Purchase</span></article>
+          <article><img src="assets/inuse-3-BcjpAI4H.jpg" alt=""><b>Salon-ready finish</b><p>Great for fades and beard lineups. The guards make length control easy.</p><span>Verified Purchase</span></article>
         </div>
       </section>
 
-      <section class="specs">
-        <article><b>200</b><span>Minute Runtime</span></article>
-        <article><b>7000</b><span>RPM Motor</span></article>
-        <article><b>USB-C</b><span>Fast Charging</span></article>
-        <article><b>0.5mm</b><span>Close Cut</span></article>
-      </section>
-
-      <section class="media-banner">
-        <img src="assets/feat-banner-CjtGeQxt.jpg" alt="VGR VL-786 product feature banner">
-      </section>
-
-      <section class="parallax-showcase">
-        <div class="parallax-copy">
-          <small>Precision System</small>
-          <h2>Zero Drag. Full Control.</h2>
-        </div>
-        <div class="product-orbit product-orbit-pdp" aria-hidden="true">
-          <img data-parallax="0.16" src="assets/feat-titanium-BInBP6fH.jpg" alt="">
-          <img data-parallax="-0.1" src="assets/feat-led-DEilWsqZ.jpg" alt="">
-          <img data-parallax="0.22" src="assets/feat-runtime-DuMu91v2.jpg" alt="">
-        </div>
-        <img class="parallax-float layer-slow" src="assets/hero-1-BiMT0yIW.png" alt="VGR VL-786 clipper">
-        <img class="parallax-float layer-fast" src="assets/feat-taper-BwN73VRy.jpg" alt="">
-      </section>
-
-      <section class="feature-list">
-        <h2>Built For Clean Fades</h2>
-        <div class="feature-card">
-          <img src="assets/feat-titanium-BInBP6fH.jpg" alt="">
-          <div><b>Titanium Blade</b><p>Smooth pass.</p></div>
-        </div>
-        <div class="feature-card">
-          <img src="assets/feat-runtime-DuMu91v2.jpg" alt="">
-          <div><b>200 Min Runtime</b><p>Long sessions.</p></div>
-        </div>
-        <div class="feature-card">
-          <img src="assets/feat-led-DEilWsqZ.jpg" alt="">
-          <div><b>LED Display</b><p>Clear readout.</p></div>
+      <section class="product-grid-section">
+        <div class="section-head"><div><small>Related Products</small><h2>Recommended for you</h2></div><a href="collection.html">View all</a></div>
+        <div class="product-grid">
+          <a class="product-tile" href="collection.html#trimmers"><span>Save 36%</span><img src="assets/official-02.webp" alt=""><b>VGR Rosso Professional Beard & Moustache Trimmer</b><p><strong>₹1,599</strong><del>₹2,499</del></p></a>
+          <a class="product-tile" href="collection.html#shavers"><span>Save 28%</span><img src="assets/official-11.webp" alt=""><b>VGR V-350 Professional Foil Shaver</b><p><strong>₹2,899</strong><del>₹3,999</del></p></a>
+          <a class="product-tile" href="collection.html#dryers"><span>Save 25%</span><img src="assets/official-04.jpg" alt=""><b>VGR V-439 Foldable Hair Dryer</b><p><strong>₹1,499</strong><del>₹1,999</del></p></a>
+          <a class="product-tile" href="collection.html#women"><span>Rated 4.6</span><img src="assets/official-15.webp" alt=""><b>VGR V-722 Cordless Epilator</b><p><strong>₹2,499</strong></p></a>
         </div>
       </section>
 
-      <section class="in-use">
-        <h2>Designed For The Chair</h2>
-        <div>
-          <img src="assets/inuse-1-oU3tZDZ7.jpg" alt="Clipper in use for a haircut">
-          <img src="assets/inuse-2-BR5Cgjst.jpg" alt="Barber using clipper">
-          <img src="assets/inuse-3-BcjpAI4H.jpg" alt="Close cut styling with clipper">
+      <section class="recently-viewed">
+        <div class="section-head"><div><small>Recently Viewed</small><h2>Pick up where you left off</h2></div></div>
+        <div class="recent-row">
+          <a href="product.html"><img src="assets/hero-1-BiMT0yIW.png" alt=""><span>VL-786 Pro</span></a>
+          <a href="collection.html#limited"><img src="assets/official-01.jpg" alt=""><span>Mr. SUPER POWER</span></a>
+          <a href="collection.html#fabric"><img src="assets/official-15.webp" alt=""><span>Lint Remover</span></a>
         </div>
       </section>
 
-      <section class="marketplaces">
-        <h2>#1 Best Sellers</h2>
-        <p>Available across leading marketplaces</p>
-        <div class="market-row">
-          <span>AMAZON</span><span>FLIPCART</span><span>MYNTRA</span><span>JIOMART</span><span>BLINKIT</span><span>TATACLIQ</span><span>ZEPTO</span>
-        </div>
-      </section>
-
-      <section class="range">
-        <h2>Products In Your Range</h2>
-        <div>
-          <button>Under ₹800</button><button>Under ₹1,000</button><button>Under ₹1,500</button>
-          <button>Under ₹2,000</button><button>Under ₹2,500</button><button>Under ₹3,000</button>
-        </div>
+      <section class="payment-section">
+        <div class="section-head"><div><small>Easy Checkout</small><h2>Secure, fast, prepaid-friendly</h2></div></div>
+        <p>5% OFF on all prepaid orders. Supported payment methods include UPI, Credit Card, Debit Card, Net Banking, Wallets, and COD where available.</p>
+        <div class="payment-icons"><span>UPI</span><span>Credit Card</span><span>Debit Card</span><span>Net Banking</span><span>Wallets</span><span>COD</span></div>
       </section>
 
       <section class="support">
@@ -181,13 +231,13 @@
         <p>Owned by VGR India Private Limited</p>
       </footer>
 
-      <aside class="buy-bar" aria-label="Buy VL-786">
+      <aside class="buy-bar pdp-buy-bar" aria-label="Buy VL-786">
         <img src="assets/hero-1-BiMT0yIW.png" alt="">
         <div>
-          <small><i></i>In Stock · 14 left</small>
+          <small><i></i>In Stock · Best Seller</small>
           <p><b>₹2,299</b><del>₹4,999</del><span>-54%</span></p>
         </div>
-        <button>BUY NOW</button>
+        <button>Add to Cart</button>
       </aside>
     </main>
     <script src="script.js"></script>

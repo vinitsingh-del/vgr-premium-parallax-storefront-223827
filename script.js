@@ -213,3 +213,58 @@ document.querySelectorAll(".product-tile").forEach((tile, index) => {
   wrap.innerHTML = `<em>${croPhrases[index % croPhrases.length]}</em><em>${croPhrases[(index + 2) % croPhrases.length]}</em>`;
   tile.appendChild(wrap);
 });
+
+const shareProductButton = document.querySelector("[data-share-product]");
+if (shareProductButton) {
+  shareProductButton.addEventListener("click", async () => {
+    const shareData = {
+      title: "VGR VL-786 Pro Hair Clipper",
+      text: "VGR VL-786 Pro Hair Clipper with titanium-coated blades, 200 minute runtime, and fast charging.",
+      url: window.location.href
+    };
+    if (navigator.share) {
+      await navigator.share(shareData).catch(() => {});
+      return;
+    }
+    await navigator.clipboard?.writeText(shareData.url).catch(() => {});
+    shareProductButton.textContent = "Link Copied";
+    window.setTimeout(() => {
+      shareProductButton.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.7 10.7 15.3 6.3M8.7 13.3l6.6 4.4"></path></svg>Share`;
+    }, 1600);
+  });
+}
+
+const qtyValue = document.querySelector("[data-qty-value]");
+const qtyMinus = document.querySelector("[data-qty-minus]");
+const qtyPlus = document.querySelector("[data-qty-plus]");
+if (qtyValue && qtyMinus && qtyPlus) {
+  let quantity = 1;
+  const setQuantity = (next) => {
+    quantity = Math.min(9, Math.max(1, next));
+    qtyValue.textContent = String(quantity);
+  };
+  qtyMinus.addEventListener("click", () => setQuantity(quantity - 1));
+  qtyPlus.addEventListener("click", () => setQuantity(quantity + 1));
+}
+
+const pincodeInput = document.querySelector("[data-pincode-input]");
+const pincodeButton = document.querySelector("[data-pincode-check]");
+const pincodeResult = document.querySelector("[data-pincode-result]");
+if (pincodeInput && pincodeButton && pincodeResult) {
+  const checkPincode = () => {
+    const value = pincodeInput.value.trim();
+    if (!/^[1-9][0-9]{5}$/.test(value)) {
+      pincodeResult.textContent = "Enter a valid 6-digit pincode to check delivery.";
+      return;
+    }
+    const fastZones = ["110", "122", "201", "400", "560", "700"];
+    const isFast = fastZones.includes(value.slice(0, 3));
+    pincodeResult.textContent = isFast
+      ? "Available. Estimated delivery in 1-2 business days with prepaid priority."
+      : "Available. Estimated delivery in 3-5 business days.";
+  };
+  pincodeButton.addEventListener("click", checkPincode);
+  pincodeInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") checkPincode();
+  });
+}
