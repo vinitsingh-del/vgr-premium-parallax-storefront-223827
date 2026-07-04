@@ -6361,3 +6361,77 @@ body {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* Final PDP share icons and uncropped key-feature product */
+.social-share-row a,
+.social-share-row button {
+  width: 44px;
+  min-width: 44px;
+  min-height: 40px;
+  padding: 0;
+}
+
+.social-share-row svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+.social-share-row .facebook svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-share-row .x svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+}
+
+.social-share-row button {
+  width: auto;
+  grid-auto-flow: column;
+  gap: 6px;
+  padding-inline: 10px;
+}
+
+.social-share-row button span {
+  font-size: 10px;
+}
+
+.pdp-v2 .feature-product {
+  min-height: 860px;
+  overflow: visible;
+}
+
+.pdp-v2 .feature-product img {
+  width: min(72%, 300px);
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 639px) {
+  .pdp-v2 .feature-product {
+    min-height: 820px;
+  }
+
+  .pdp-v2 .feature-product img {
+    width: min(74%, 252px);
+  }
+}
+
+@media (min-width: 760px) {
+  .pdp-v2 .feature-product {
+    min-height: 940px;
+  }
+
+  .pdp-v2 .feature-product img {
+    width: min(68%, 310px);
+  }
+}

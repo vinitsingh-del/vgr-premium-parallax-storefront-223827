@@ -260,9 +260,10 @@ const copyLinkButton = document.querySelector("[data-copy-link]");
 if (copyLinkButton) {
   copyLinkButton.addEventListener("click", async () => {
     await navigator.clipboard?.writeText(window.location.href).catch(() => {});
-    copyLinkButton.textContent = "Copied";
+    const label = copyLinkButton.querySelector("span");
+    if (label) label.textContent = "Copied";
     window.setTimeout(() => {
-      copyLinkButton.textContent = "Copy";
+      if (label) label.textContent = "Copy";
     }, 1400);
   });
 }
