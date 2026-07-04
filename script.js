@@ -256,6 +256,17 @@ if (shareProductButton) {
   });
 }
 
+const copyLinkButton = document.querySelector("[data-copy-link]");
+if (copyLinkButton) {
+  copyLinkButton.addEventListener("click", async () => {
+    await navigator.clipboard?.writeText(window.location.href).catch(() => {});
+    copyLinkButton.textContent = "Copied";
+    window.setTimeout(() => {
+      copyLinkButton.textContent = "Copy";
+    }, 1400);
+  });
+}
+
 const qtyValue = document.querySelector("[data-qty-value]");
 const qtyMinus = document.querySelector("[data-qty-minus]");
 const qtyPlus = document.querySelector("[data-qty-plus]");
