@@ -6895,3 +6895,34 @@ body:has(.pdp-v2):not(.pdp-sticky-ready) .pdp-buy-bar {
     height: 222px;
   }
 }
+
+/* Tightened cropped product media for PDP recommendation cards */
+.pdp-v2 .product-grid-section .product-tile img,
+.pdp-v2 .recent-row img {
+  padding: clamp(8px, 2vw, 16px);
+  background:
+    radial-gradient(circle at 50% 56%, rgba(24,196,196,0.16), transparent 38%),
+    linear-gradient(180deg, rgba(24,196,196,0.05), rgba(15,15,15,0));
+  transform: scale(1.08);
+  transform-origin: center center;
+}
+
+.pdp-v2 .product-grid-section .product-tile img {
+  height: clamp(218px, 26vw, 266px);
+}
+
+.pdp-v2 .recent-row img {
+  height: 158px;
+}
+
+@media (max-width: 639px) {
+  .pdp-v2 .product-grid-section .product-tile img {
+    height: 244px;
+    padding: 10px;
+  }
+
+  .pdp-v2 .recent-row img {
+    height: 202px;
+    padding: 10px;
+  }
+}
