@@ -6645,3 +6645,60 @@ body:has(.pdp-v2) {
     height: 88px;
   }
 }
+
+/* PDP related/recommended product media should cover the card */
+.pdp-v2 .product-grid-section .product-tile {
+  overflow: hidden;
+  border-color: rgba(24,196,196,0.24);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(24,196,196,0.1), transparent 42%),
+    linear-gradient(145deg, rgba(245,245,245,0.045), rgba(15,15,15,0.98)),
+    var(--matte-black);
+}
+
+.pdp-v2 .product-grid-section .product-tile img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 44vw, 310px);
+  aspect-ratio: auto;
+  padding: 0;
+  border-bottom: 1px solid rgba(24,196,196,0.18);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(24,196,196,0.18), transparent 56%),
+    #101313;
+  object-fit: cover;
+  object-position: center;
+  scale: 1;
+}
+
+.pdp-v2 .product-grid-section .product-tile b,
+.pdp-v2 .product-grid-section .product-tile p {
+  background: transparent;
+}
+
+.pdp-v2 .recent-row a {
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(245,245,245,0.045), rgba(15,15,15,0.98)),
+    var(--matte-black);
+}
+
+.pdp-v2 .recent-row img {
+  width: 100%;
+  height: 150px;
+  padding: 0;
+  background: #101313;
+  object-fit: cover;
+  object-position: center;
+  scale: 1;
+}
+
+@media (max-width: 639px) {
+  .pdp-v2 .product-grid-section .product-tile img {
+    height: 300px;
+  }
+
+  .pdp-v2 .recent-row img {
+    height: 230px;
+  }
+}
