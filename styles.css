@@ -6927,24 +6927,39 @@ body:has(.pdp-v2):not(.pdp-sticky-ready) .pdp-buy-bar {
   }
 }
 
-/* Flat PDP checkout/footer finish: remove the bottom gradient wash */
+/* Flat PDP checkout/footer finish: keep the original dark theme without a dimming wash */
 .pdp-v2 .payment-section,
 .pdp-v2 footer {
-  background: var(--matte-black) !important;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(24,196,196,0.18), transparent 34%),
+    linear-gradient(145deg, rgba(15,15,15,0.98), rgba(6,107,107,0.34)),
+    var(--matte-black) !important;
+  color: var(--paper);
   box-shadow: none;
 }
 
 .pdp-v2 .payment-section {
-  border-color: rgba(24,196,196,0.16);
+  border-color: rgba(24,196,196,0.18);
 }
 
 .pdp-v2 footer {
-  border-top: 1px solid rgba(24,196,196,0.12);
+  border-top: 1px solid rgba(24,196,196,0.16);
+}
+
+.pdp-v2 footer h4,
+.pdp-v2 footer p {
+  color: rgba(245,245,245,0.82);
+}
+
+.pdp-v2 .payment-section .section-head h2,
+.pdp-v2 .payment-section p {
+  color: var(--paper);
 }
 
 .pdp-v2 .payment-icons span {
-  background: #f5f5f5;
-  color: var(--matte-black);
+  background: rgba(245,245,245,0.07);
+  color: var(--paper);
+  border-color: rgba(24,196,196,0.2);
 }
 
 /* Keep checkout/footer fully visible; no dimming cover or view filter */
@@ -6957,4 +6972,58 @@ body:has(.pdp-v2):not(.pdp-sticky-ready) .pdp-buy-bar {
   backdrop-filter: none !important;
   opacity: 1 !important;
   transform: none !important;
+}
+
+body.pdp-footer-visible .pdp-v2 .pdp-buy-bar {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, 24px, 0) scale(0.96);
+}
+
+@media (max-width: 639px) {
+  .pdp-v2 .payment-section {
+    padding: 20px 14px;
+  }
+
+  .pdp-v2 .payment-section .section-head {
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .pdp-v2 .payment-section .section-head h2 {
+    font-size: clamp(28px, 9vw, 36px);
+    line-height: 0.98;
+    max-width: 12ch;
+  }
+
+  .pdp-v2 .payment-section p {
+    font-size: 12px;
+    line-height: 1.55;
+    margin-top: 12px;
+  }
+
+  .pdp-v2 .payment-icons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .pdp-v2 .payment-icons span {
+    min-height: 42px;
+    padding: 12px 8px;
+  }
+
+  .pdp-v2 footer {
+    padding: 22px 14px 28px;
+  }
+
+  .pdp-v2 .footer-links {
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .pdp-v2 footer p {
+    font-size: 12px;
+    line-height: 1.35;
+  }
 }

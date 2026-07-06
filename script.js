@@ -283,12 +283,19 @@ if (copyLinkButton) {
 
 const pdpStickyBar = document.querySelector(".pdp-buy-bar");
 if (pdpStickyBar) {
+  const footerSections = Array.from(document.querySelectorAll(".pdp-v2 .payment-section, .pdp-v2 footer"));
   const updateStickyBuyBar = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
     document.body.classList.toggle("pdp-sticky-ready", scrollTop > 24);
+    const footerVisible = footerSections.some((section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    });
+    document.body.classList.toggle("pdp-footer-visible", footerVisible);
   };
   updateStickyBuyBar();
   window.addEventListener("scroll", updateStickyBuyBar, { passive: true });
+  window.addEventListener("resize", updateStickyBuyBar, { passive: true });
   document.addEventListener("wheel", updateStickyBuyBar, { passive: true });
   document.addEventListener("touchmove", updateStickyBuyBar, { passive: true });
 }
