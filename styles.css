@@ -6946,3 +6946,15 @@ body:has(.pdp-v2):not(.pdp-sticky-ready) .pdp-buy-bar {
   background: #f5f5f5;
   color: var(--matte-black);
 }
+
+/* Keep checkout/footer fully visible; no dimming cover or view filter */
+.pdp-v2 .payment-section,
+.pdp-v2 footer,
+.pdp-v2 .payment-icons span {
+  animation: none !important;
+  animation-timeline: auto !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
