@@ -6435,3 +6435,124 @@ body {
     width: min(68%, 310px);
   }
 }
+
+/* PDP final polish pass: 20% zoom-out, CTA affordance, title motion, rhythm */
+body:has(.pdp-v2) {
+  zoom: 0.8;
+}
+
+.pdp-v2 {
+  --pdp-container: min(1180px, calc(100% - 40px));
+}
+
+.pdp-v2 .pdp-hero,
+.pdp-v2 .pdp-features,
+.pdp-v2 .bundle-section,
+.pdp-v2 .video-gallery,
+.pdp-v2 .reviews-section,
+.pdp-v2 .product-grid-section,
+.pdp-v2 .recently-viewed,
+.pdp-v2 .payment-section {
+  margin-top: 22px;
+}
+
+.pdp-v2 .pdp-hero {
+  margin-top: 0;
+}
+
+.pdp-v2 .pdp-summary h1 {
+  max-width: 12ch;
+  letter-spacing: 0;
+  animation: pdpTitleLift 780ms cubic-bezier(0.18, 0.82, 0.22, 1) both;
+}
+
+.pdp-v2 .pdp-summary h1 span + span {
+  animation: pdpTitleLift 920ms cubic-bezier(0.18, 0.82, 0.22, 1) 90ms both;
+}
+
+.pdp-v2 .pdp-summary,
+.pdp-v2 .pdp-gallery,
+.pdp-v2 .offer-panel,
+.pdp-v2 .emi-panel,
+.pdp-v2 .delivery-check,
+.pdp-v2 .bundle-section,
+.pdp-v2 .video-gallery,
+.pdp-v2 .reviews-section,
+.pdp-v2 .recently-viewed,
+.pdp-v2 .payment-section {
+  box-shadow: 0 22px 68px rgba(0,0,0,0.2);
+}
+
+.pdp-v2 .primary-buy,
+.pdp-v2 .checkout-now,
+.pdp-v2 .pdp-buy-bar button {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 34px rgba(24,196,196,0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.pdp-v2 .pdp-buy-bar {
+  grid-template-columns: 38px minmax(0, 1fr) 112px;
+}
+
+.pdp-v2 .pdp-buy-bar button {
+  white-space: nowrap;
+}
+
+.pdp-v2 .primary-buy::after,
+.pdp-v2 .checkout-now::after,
+.pdp-v2 .pdp-buy-bar button::after {
+  content: "→";
+  margin-left: 9px;
+  font-weight: 950;
+}
+
+.pdp-v2 .primary-buy:hover,
+.pdp-v2 .checkout-now:hover,
+.pdp-v2 .pdp-buy-bar button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 22px 44px rgba(24,196,196,0.26);
+}
+
+.pdp-v2 .primary-buy:active,
+.pdp-v2 .checkout-now:active,
+.pdp-v2 .pdp-buy-bar button:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.pdp-v2 .section-head {
+  gap: 14px;
+  padding-bottom: 2px;
+}
+
+.pdp-v2 .section-head h2 {
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.pdp-v2 .product-grid-section .product-grid,
+.pdp-v2 .recent-row,
+.pdp-v2 .bundle-row,
+.pdp-v2 .reel-grid {
+  gap: 16px;
+}
+
+@keyframes pdpTitleLift {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdp-v2 .pdp-summary h1,
+  .pdp-v2 .pdp-summary h1 span + span {
+    animation: none;
+  }
+}
