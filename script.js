@@ -237,22 +237,35 @@ document.querySelectorAll(".product-tile").forEach((tile, index) => {
 });
 
 const shareProductButton = document.querySelector("[data-share-product]");
+const productShareData = {
+  title: "VGR VL-786 Pro Hair Clipper",
+  text: "VGR VL-786 Pro Hair Clipper with titanium-coated blades, 200 minute runtime, and fast charging.",
+  url: window.location.href
+};
 if (shareProductButton) {
   shareProductButton.addEventListener("click", async () => {
-    const shareData = {
-      title: "VGR VL-786 Pro Hair Clipper",
-      text: "VGR VL-786 Pro Hair Clipper with titanium-coated blades, 200 minute runtime, and fast charging.",
-      url: window.location.href
-    };
     if (navigator.share) {
-      await navigator.share(shareData).catch(() => {});
+      await navigator.share(productShareData).catch(() => {});
       return;
     }
-    await navigator.clipboard?.writeText(shareData.url).catch(() => {});
+    await navigator.clipboard?.writeText(productShareData.url).catch(() => {});
     shareProductButton.textContent = "Link Copied";
     window.setTimeout(() => {
       shareProductButton.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.7 10.7 15.3 6.3M8.7 13.3l6.6 4.4"></path></svg>Share`;
     }, 1600);
+  });
+}
+
+const inlineShareButton = document.querySelector("[data-inline-share]");
+if (inlineShareButton) {
+  inlineShareButton.addEventListener("click", async () => {
+    if (navigator.share) {
+      await navigator.share(productShareData).catch(() => {});
+      return;
+    }
+    await navigator.clipboard?.writeText(productShareData.url).catch(() => {});
+    inlineShareButton.classList.add("is-copied");
+    window.setTimeout(() => inlineShareButton.classList.remove("is-copied"), 1100);
   });
 }
 
@@ -266,6 +279,18 @@ if (copyLinkButton) {
       if (label) label.textContent = "Copy";
     }, 1400);
   });
+}
+
+const pdpStickyBar = document.querySelector(".pdp-buy-bar");
+if (pdpStickyBar) {
+  const updateStickyBuyBar = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    document.body.classList.toggle("pdp-sticky-ready", scrollTop > 24);
+  };
+  updateStickyBuyBar();
+  window.addEventListener("scroll", updateStickyBuyBar, { passive: true });
+  document.addEventListener("wheel", updateStickyBuyBar, { passive: true });
+  document.addEventListener("touchmove", updateStickyBuyBar, { passive: true });
 }
 
 const qtyValue = document.querySelector("[data-qty-value]");
