@@ -7735,6 +7735,12 @@ body:has(.v219-pet-white-page) {
   --ui-radius: 8px;
   --ui-border: 1px solid rgba(24,196,196,0.24);
   --heading-gap: 16px;
+  --text-on-dark: #FFFFFF;
+  --text-muted-on-dark: #E5E7EB;
+  --text-on-light: #111827;
+  --text-muted-on-light: #374151;
+  --surface-dark-readable: #0D0D16;
+  --surface-light-readable: #FFFFFF;
 }
 
 @media (min-width: 760px) {
@@ -8174,6 +8180,100 @@ body:has(.pdp-v2) {
 
 .pdp-v2 footer {
   padding: var(--section-y) var(--site-gutter);
+}
+
+/* Contrast/readability pass for image cards and checkout surfaces */
+.spotlight-page-card {
+  --spotlight-bg: linear-gradient(145deg, #0D0D16, #073D3D);
+  background:
+    linear-gradient(145deg, rgba(13,13,22,0.34), rgba(6,107,107,0.18)),
+    var(--spotlight-bg);
+  background-position: center;
+  background-size: cover;
+  color: var(--text-on-dark);
+}
+
+.spotlight-page-card--hero {
+  --spotlight-bg: url("assets/ai-men-grooming-bg.png");
+}
+
+.spotlight-page-card--women {
+  --spotlight-bg: url("assets/ai-women-grooming-bg.png");
+}
+
+.spotlight-page-card--pet {
+  --spotlight-bg: url("assets/ai-pet-grooming-bg.png");
+}
+
+.spotlight-page-card::before {
+  background:
+    linear-gradient(180deg, rgba(13,13,22,0.18) 0%, rgba(13,13,22,0.68) 48%, rgba(13,13,22,0.96) 100%),
+    linear-gradient(90deg, rgba(13,13,22,0.54), rgba(13,13,22,0.2));
+}
+
+.spotlight-page-card > span {
+  background: #05706B;
+  color: var(--text-on-dark);
+  z-index: 4;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.36);
+  text-shadow: none;
+}
+
+.spotlight-page-card img {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.92);
+}
+
+.spotlight-page-card div {
+  color: var(--text-on-dark);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+}
+
+.spotlight-page-card small,
+.spotlight-page-card strong {
+  color: #3DF3F3;
+}
+
+.spotlight-page-card b {
+  color: var(--text-on-dark);
+}
+
+.spotlight-page-card del {
+  color: var(--text-muted-on-dark);
+}
+
+.pdp-v2 .payment-section,
+.cart-page .checkout-card {
+  color: var(--text-on-dark);
+}
+
+.pdp-v2 .payment-section p,
+.cart-page .checkout-card p {
+  color: var(--text-muted-on-dark);
+}
+
+.pdp-v2 .payment-icons span,
+.cart-page .payment-icons span {
+  background: var(--surface-light-readable) !important;
+  color: var(--text-on-light) !important;
+  border-color: rgba(17,24,39,0.22) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.pdp-v2 .payment-icons,
+.cart-page .payment-icons {
+  color: var(--text-on-light);
+}
+
+.cart-page .order-total span {
+  color: var(--text-on-dark);
+}
+
+.cart-page .order-total b,
+.pdp-v2 .payment-section strong {
+  color: #F4D35E;
 }
 
 @media (max-width: 759px) {
