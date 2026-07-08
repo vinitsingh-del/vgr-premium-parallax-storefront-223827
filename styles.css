@@ -7050,35 +7050,44 @@ body.pdp-footer-visible .pdp-v2 .pdp-buy-bar {
 }
 
 /* White women-focused V-439 product page */
-body:has(.v439-white-page) {
+body:has(.v439-white-page),
+body:has(.v219-pet-white-page) {
   background: #fff;
 }
 
-.v439-white-page {
+.v439-white-page,
+.v219-pet-white-page {
   background:
     radial-gradient(circle at 78% 8%, rgba(24,196,196,0.11), transparent 30%),
     linear-gradient(180deg, #fff, #f7fbfb 48%, #fff);
   color: var(--matte-black);
 }
 
-.v439-white-page .offer-strip {
+.v439-white-page .offer-strip,
+.v219-pet-white-page .offer-strip {
   background: var(--matte-black);
 }
 
-.v439-white-page .topbar {
+.v439-white-page .topbar,
+.v219-pet-white-page .topbar {
   background: rgba(255,255,255,0.86);
   border-color: rgba(15,15,15,0.08);
   color: var(--matte-black);
 }
 
-.v439-white-page .icon-button span {
+.v439-white-page .icon-button span,
+.v219-pet-white-page .icon-button span {
   background: var(--matte-black);
 }
 
 .v439-white-page .breadcrumbs,
 .v439-white-page .breadcrumbs strong,
 .v439-white-page p,
-.v439-white-page li {
+.v439-white-page li,
+.v219-pet-white-page .breadcrumbs,
+.v219-pet-white-page .breadcrumbs strong,
+.v219-pet-white-page p,
+.v219-pet-white-page li {
   color: rgba(15,15,15,0.72);
 }
 
@@ -7089,25 +7098,36 @@ body:has(.v439-white-page) {
 .v439-white-page .delivery-check,
 .v439-white-page .v439-feature-band,
 .v439-white-page .v439-story,
-.v439-white-page .reviews-section {
+.v439-white-page .reviews-section,
+.v219-pet-white-page .pdp-hero,
+.v219-pet-white-page .pdp-gallery,
+.v219-pet-white-page .pdp-summary,
+.v219-pet-white-page .offer-panel,
+.v219-pet-white-page .delivery-check,
+.v219-pet-white-page .v219-pet-feature-band,
+.v219-pet-white-page .v219-pet-story,
+.v219-pet-white-page .reviews-section {
   background: rgba(255,255,255,0.92);
   border-color: rgba(15,15,15,0.08);
   box-shadow: 0 24px 70px rgba(15,15,15,0.08);
 }
 
-.v439-white-page .pdp-hero {
+.v439-white-page .pdp-hero,
+.v219-pet-white-page .pdp-hero {
   position: relative;
   overflow: hidden;
 }
 
-.v439-ai-panel {
+.v439-ai-panel,
+.v219-pet-ai-panel {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
 }
 
-.v439-ai-panel::after {
+.v439-ai-panel::after,
+.v219-pet-ai-panel::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -7116,7 +7136,8 @@ body:has(.v439-white-page) {
     linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.9));
 }
 
-.v439-ai-panel img {
+.v439-ai-panel img,
+.v219-pet-ai-panel img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -7124,30 +7145,60 @@ body:has(.v439-white-page) {
   filter: saturate(1.02) contrast(1.02);
 }
 
+.v219-pet-ai-panel img {
+  object-position: right bottom;
+}
+
 .v439-white-page .pdp-gallery,
-.v439-white-page .pdp-summary {
+.v439-white-page .pdp-summary,
+.v219-pet-white-page .pdp-gallery,
+.v219-pet-white-page .pdp-summary {
   position: relative;
   z-index: 1;
 }
 
-.v439-white-page .gallery-frame {
+.v439-white-page .gallery-frame,
+.v219-pet-white-page .gallery-frame {
   background:
     radial-gradient(circle at 58% 42%, rgba(24,196,196,0.11), transparent 34%),
     #fff;
   border-color: rgba(15,15,15,0.08);
 }
 
-.v439-white-page .gallery-frame img {
+.v439-white-page .gallery-frame img,
+.v219-pet-white-page .gallery-frame img {
   filter: drop-shadow(0 28px 30px rgba(15,15,15,0.18));
 }
 
 .v439-white-page .pdp-summary h1,
 .v439-white-page .section-head h2,
-.v439-white-page .v439-story h2 {
+.v439-white-page .v439-story h2,
+.v219-pet-white-page .pdp-summary h1,
+.v219-pet-white-page .section-head h2,
+.v219-pet-white-page .v219-pet-story h2 {
   color: var(--matte-black);
 }
 
-.v439-white-page .v439-lede {
+.v219-pet-white-page .pdp-summary h1 {
+  max-width: 100%;
+  font-size: clamp(42px, 5.3vw, 72px);
+  line-height: 0.9;
+}
+
+.v219-pet-white-page .pdp-summary h1 span {
+  white-space: normal;
+}
+
+.v439-white-page .v439-feature-band,
+.v219-pet-white-page .v219-pet-feature-band,
+.v439-white-page .v439-story,
+.v219-pet-white-page .v219-pet-story {
+  width: var(--pdp-container);
+  margin-inline: auto;
+}
+
+.v439-white-page .v439-lede,
+.v219-pet-white-page .v219-pet-lede {
   max-width: 620px;
   font-size: 16px;
   line-height: 1.6;
@@ -7157,63 +7208,82 @@ body:has(.v439-white-page) {
 .v439-white-page .pdp-category,
 .v439-white-page .purchase-signal,
 .v439-white-page .section-head small,
-.v439-white-page .v439-story small {
+.v439-white-page .v439-story small,
+.v219-pet-white-page .pdp-category,
+.v219-pet-white-page .purchase-signal,
+.v219-pet-white-page .section-head small,
+.v219-pet-white-page .v219-pet-story small {
   color: var(--brand);
 }
 
 .v439-white-page .price-row strong,
 .v439-white-page .review-line span,
-.v439-white-page .product-tile strong {
+.v439-white-page .product-tile strong,
+.v219-pet-white-page .price-row strong,
+.v219-pet-white-page .review-line span,
+.v219-pet-white-page .product-tile strong {
   color: var(--brand);
 }
 
 .v439-white-page .price-row del,
-.v439-white-page .review-line em {
+.v439-white-page .review-line em,
+.v219-pet-white-page .price-row del,
+.v219-pet-white-page .review-line em {
   color: rgba(15,15,15,0.4);
 }
 
 .v439-white-page .qty-control,
 .v439-white-page .delivery-check input,
 .v439-white-page .coupon-grid article,
-.v439-white-page .trust-row span {
+.v439-white-page .trust-row span,
+.v219-pet-white-page .qty-control,
+.v219-pet-white-page .delivery-check input,
+.v219-pet-white-page .coupon-grid article,
+.v219-pet-white-page .trust-row span {
   background: #fff;
   color: var(--matte-black);
   border-color: rgba(15,15,15,0.1);
 }
 
-.v439-feature-grid {
+.v439-feature-grid,
+.v219-pet-feature-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
-.v439-feature-grid article {
+.v439-feature-grid article,
+.v219-pet-feature-grid article {
   min-height: 160px;
   padding: 20px;
   border: 1px solid rgba(15,15,15,0.08);
   background: linear-gradient(180deg, #fff, #f7fbfb);
 }
 
-.v439-feature-grid b {
+.v439-feature-grid b,
+.v219-pet-feature-grid b {
   display: block;
   color: var(--matte-black);
   font-size: 18px;
   line-height: 1.15;
 }
 
-.v439-feature-grid p {
+.v439-feature-grid p,
+.v219-pet-feature-grid p {
   margin: 12px 0 0;
   line-height: 1.5;
 }
 
-.v439-story {
+.v439-story,
+.v219-pet-story {
   display: grid;
   grid-template-columns: minmax(280px, 0.9fr) 1fr;
   align-items: center;
   gap: clamp(24px, 5vw, 72px);
 }
 
-.v439-story img {
+.v439-story img,
+.v219-pet-story img {
   width: 100%;
   max-height: 520px;
   object-fit: contain;
@@ -7221,47 +7291,62 @@ body:has(.v439-white-page) {
   filter: drop-shadow(0 24px 32px rgba(15,15,15,0.12));
 }
 
-.v439-story h2 {
+.v439-story h2,
+.v219-pet-story h2 {
   margin: 8px 0 14px;
   font-size: clamp(40px, 5vw, 74px);
   line-height: 0.92;
 }
 
-.v439-white-page footer {
+.v439-white-page footer,
+.v219-pet-white-page footer {
   background: #fff !important;
   color: var(--matte-black);
   border-top: 1px solid rgba(15,15,15,0.08);
 }
 
 .v439-white-page footer h4,
-.v439-white-page footer p {
+.v439-white-page footer p,
+.v219-pet-white-page footer h4,
+.v219-pet-white-page footer p {
   color: rgba(15,15,15,0.72);
 }
 
 @media (max-width: 900px) {
-  .v439-feature-grid {
+  .v439-feature-grid,
+  .v219-pet-feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .v439-story {
+  .v439-story,
+  .v219-pet-story {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 639px) {
-  .v439-ai-panel {
+  .v439-ai-panel,
+  .v219-pet-ai-panel {
     opacity: 0.55;
   }
 
-  .v439-white-page .pdp-summary h1 {
+  .v439-white-page .pdp-summary h1,
+  .v219-pet-white-page .pdp-summary h1 {
     font-size: clamp(48px, 14vw, 68px);
   }
 
-  .v439-feature-grid {
+  .v219-pet-white-page .pdp-summary h1 {
+    font-size: clamp(34px, 10.5vw, 42px);
+    line-height: 0.95;
+  }
+
+  .v439-feature-grid,
+  .v219-pet-feature-grid {
     grid-template-columns: 1fr;
   }
 
-  .v439-feature-grid article {
+  .v439-feature-grid article,
+  .v219-pet-feature-grid article {
     min-height: 0;
   }
 }
