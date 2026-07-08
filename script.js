@@ -1,7 +1,7 @@
 const preloader = document.querySelector("[data-preloader]");
 if (preloader) {
   preloader.innerHTML = `
-    <section class="preloader-card" aria-label="VGR loading highlights">
+    <section class="preloader-card preloader-card--simple" aria-label="VGR loading highlights">
       <div class="preloader-brand">
         <img src="assets/logo-vgr-DqorsC6P.png" alt="VGR">
         <span></span>
@@ -10,15 +10,6 @@ if (preloader) {
         <img src="assets/hero-1-BiMT0yIW.png" alt="">
         <img src="assets/v439-gallery-01.webp" alt="">
         <img src="assets/v219-pet-gallery-01.webp" alt="">
-      </div>
-      <div class="preloader-copy">
-        <small>Loading VGR Store</small>
-        <h2>Performance grooming, ready to ship.</h2>
-        <ul>
-          <li>Free Express Shipping ₹999+</li>
-          <li>1+1 Year Warranty</li>
-          <li>COD · Secure Checkout · Fast Dispatch</li>
-        </ul>
       </div>
       <div class="preloader-progress" aria-hidden="true"><span></span></div>
     </section>
@@ -434,8 +425,11 @@ if (homeSlider) {
   const prev = homeSlider.querySelector("[data-home-slide-prev]");
   const next = homeSlider.querySelector("[data-home-slide-next]");
   const dotsWrap = homeSlider.querySelector("[data-home-slide-dots]");
+  const firstVideo = slides[0]?.querySelector("video");
   let index = 0;
   let startX = 0;
+  let autoTimer;
+  let firstVideoPlays = 0;
   const dots = slides.map((_, dotIndex) => {
     const dot = document.createElement("button");
     dot.type = "button";
@@ -445,9 +439,17 @@ if (homeSlider) {
     return dot;
   });
   const setSlide = (nextIndex) => {
+    window.clearTimeout(autoTimer);
     index = (nextIndex + slides.length) % slides.length;
     slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === index));
     dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === index));
+    if (index === 0 && firstVideo) {
+      firstVideoPlays = 0;
+      firstVideo.currentTime = 0;
+      firstVideo.play?.().catch(() => {});
+      return;
+    }
+    autoTimer = window.setTimeout(() => setSlide(index + 1), 5200);
   };
   prev?.addEventListener("click", () => setSlide(index - 1));
   next?.addEventListener("click", () => setSlide(index + 1));
@@ -459,7 +461,21 @@ if (homeSlider) {
     if (Math.abs(delta) > 42) setSlide(index + (delta < 0 ? 1 : -1));
   }, { passive: true });
   setSlide(0);
-  window.setInterval(() => setSlide(index + 1), 5200);
+  if (firstVideo) {
+    firstVideo.loop = false;
+    firstVideo.addEventListener("ended", () => {
+      if (index !== 0) return;
+      firstVideoPlays += 1;
+      if (firstVideoPlays < 2) {
+        firstVideo.currentTime = 0;
+        firstVideo.play?.().catch(() => {});
+        return;
+      }
+      setSlide(1);
+    });
+  } else {
+    autoTimer = window.setTimeout(() => setSlide(1), 5200);
+  }
 }
 
 document.querySelectorAll(".bestseller-card button").forEach((button) => {
