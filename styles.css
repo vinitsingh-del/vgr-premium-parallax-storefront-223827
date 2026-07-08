@@ -7456,6 +7456,136 @@ body:has(.v219-pet-white-page) {
   line-height: 1.5;
 }
 
+.v439-parallax-showcase {
+  position: relative;
+  min-height: clamp(620px, 72vw, 820px);
+  overflow: hidden;
+  margin: var(--section-y) auto;
+  padding: clamp(24px, 5vw, 70px);
+  border: 1px solid rgba(24,196,196,0.28);
+  border-radius: var(--ui-radius);
+  background: #0D0D16;
+  color: #FFFFFF;
+  isolation: isolate;
+  box-shadow: 0 28px 90px rgba(0,0,0,0.28);
+}
+
+.v439-parallax-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(13,13,22,0.92) 0%, rgba(13,13,22,0.62) 38%, rgba(13,13,22,0.08) 100%),
+    radial-gradient(circle at 22% 24%, rgba(24,196,196,0.22), transparent 30%),
+    linear-gradient(180deg, rgba(13,13,22,0.08), rgba(13,13,22,0.7));
+  pointer-events: none;
+}
+
+.v439-showcase-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.06);
+}
+
+.v439-showcase-copy {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  max-width: min(520px, 92%);
+  min-height: 100%;
+}
+
+.v439-showcase-copy small {
+  color: #3DF3F3;
+  font-weight: 950;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.v439-showcase-copy h2 {
+  max-width: 10ch;
+  color: #FFFFFF;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.86;
+}
+
+.v439-showcase-copy p {
+  max-width: 50ch;
+  color: #E5E7EB;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.7;
+}
+
+.v439-showcase-copy div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.v439-showcase-copy span,
+.v439-showcase-card figcaption {
+  border: 1px solid rgba(244,211,94,0.46);
+  border-radius: 999px;
+  background: rgba(6,63,63,0.72);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  padding: 9px 12px;
+  text-transform: uppercase;
+}
+
+.v439-showcase-card {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(61,243,243,0.38);
+  border-radius: var(--ui-radius);
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.38);
+}
+
+.v439-showcase-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.v439-showcase-card figcaption {
+  justify-self: start;
+  background: #05706B;
+  border-color: rgba(61,243,243,0.48);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+.v439-showcase-card--hero {
+  right: clamp(24px, 6vw, 92px);
+  bottom: clamp(26px, 5vw, 74px);
+  width: clamp(220px, 27vw, 390px);
+  aspect-ratio: 1 / 0.92;
+}
+
+.v439-showcase-card--detail {
+  right: clamp(250px, 34vw, 530px);
+  top: clamp(28px, 7vw, 96px);
+  width: clamp(150px, 16vw, 240px);
+  aspect-ratio: 1 / 0.9;
+}
+
 .v439-story,
 .v219-pet-story {
   display: grid;
@@ -7498,6 +7628,45 @@ body:has(.v219-pet-white-page) {
   .v439-feature-grid,
   .v219-pet-feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .v439-parallax-showcase {
+    min-height: 1040px;
+    padding: 22px;
+  }
+
+  .v439-parallax-showcase::before {
+    background:
+      linear-gradient(180deg, rgba(13,13,22,0.78) 0%, rgba(13,13,22,0.34) 48%, rgba(13,13,22,0.88) 100%),
+      radial-gradient(circle at 36% 18%, rgba(24,196,196,0.2), transparent 30%);
+  }
+
+  .v439-showcase-bg {
+    object-position: 60% center;
+  }
+
+  .v439-showcase-copy {
+    max-width: 100%;
+    min-height: 0;
+    align-content: start;
+  }
+
+  .v439-showcase-copy h2 {
+    max-width: 9ch;
+  }
+
+  .v439-showcase-card--hero {
+    right: 18px;
+    bottom: 104px;
+    width: min(78%, 280px);
+  }
+
+  .v439-showcase-card--detail {
+    left: 22px;
+    right: auto;
+    top: auto;
+    bottom: 365px;
+    width: min(44%, 164px);
   }
 
   .v439-story,
@@ -8485,6 +8654,7 @@ body:has(.pdp-v2) {
   .payment-section,
   .cart-shell,
   .v439-feature-band,
+  .v439-parallax-showcase,
   .v219-pet-feature-band,
   .v439-story,
   .v219-pet-story,
