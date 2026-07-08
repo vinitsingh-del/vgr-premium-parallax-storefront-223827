@@ -11,7 +11,7 @@ if (preloader) {
   window.setTimeout(hidePreloader, 2400);
 }
 
-const images = [
+let images = [
   ["assets/hero-1-BiMT0yIW.png", "Hero"],
   ["assets/hero-2-HwV2gwU-.png", "Blade"],
   ["assets/hero-3-DAnsO63z.png", "Grip"],
@@ -23,6 +23,16 @@ const images = [
   ["assets/hero-9-CTiJ3cka.png", "Box"],
   ["assets/hero-10-D6hOmdWa.png", "Details"]
 ];
+
+const galleryData = document.querySelector("[data-gallery-images]");
+if (galleryData) {
+  try {
+    const pageImages = JSON.parse(galleryData.textContent);
+    if (Array.isArray(pageImages) && pageImages.length) images = pageImages;
+  } catch (error) {
+    console.warn("Unable to load page gallery images", error);
+  }
+}
 
 const hero = document.querySelector("#hero-image");
 const frame = document.querySelector(".gallery-frame");
@@ -53,7 +63,7 @@ function setActive(index) {
     hero.src = images[index][0];
     hero.alt = `VL-786 ${images[index][1].toLowerCase()} view`;
     viewName.textContent = images[index][1];
-    counter.textContent = `${String(index + 1).padStart(2, "0")} / 10`;
+    counter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(images.length).padStart(2, "0")}`;
     document.querySelectorAll(".thumbs button").forEach((button, buttonIndex) => {
       button.classList.toggle("active", buttonIndex === index);
     });
