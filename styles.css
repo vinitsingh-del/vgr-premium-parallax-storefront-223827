@@ -6980,6 +6980,75 @@ body.pdp-footer-visible .pdp-v2 .pdp-buy-bar {
   transform: translate3d(-50%, 24px, 0) scale(0.96);
 }
 
+/* AI lifestyle backgrounds for category-specific collection cards */
+#women .product-tile,
+#pet .product-tile {
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(15,15,15,0.68), rgba(15,15,15,0.96) 68%),
+    var(--matte-black);
+}
+
+#women .product-tile::before,
+#pet .product-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--category-card-bg);
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.48;
+  filter: saturate(1.06) contrast(1.06);
+  transform: scale(1.03);
+}
+
+#women .product-tile::after,
+#pet .product-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 72% 16%, rgba(24,196,196,0.24), transparent 34%),
+    linear-gradient(180deg, rgba(15,15,15,0.18), rgba(15,15,15,0.96) 64%);
+}
+
+#women .product-tile {
+  --category-card-bg: url("assets/ai-women-grooming-bg.png");
+}
+
+#pet .product-tile {
+  --category-card-bg: url("assets/ai-pet-grooming-bg.png");
+}
+
+#women .product-tile img,
+#pet .product-tile img {
+  position: relative;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(244,247,247,0.92));
+  box-shadow: 0 16px 38px rgba(0,0,0,0.28);
+}
+
+#women .product-tile span,
+#women .product-tile b,
+#women .product-tile p,
+#pet .product-tile span,
+#pet .product-tile b,
+#pet .product-tile p {
+  position: relative;
+  z-index: 1;
+}
+
+#women .product-tile b,
+#pet .product-tile b {
+  text-shadow: 0 2px 18px rgba(0,0,0,0.72);
+}
+
 @media (max-width: 639px) {
   .pdp-v2 .payment-section {
     padding: 20px 14px;
