@@ -7360,6 +7360,13 @@ body:has(.v219-pet-white-page) {
   line-height: 0.9;
 }
 
+.v439-white-page .pdp-summary h1 {
+  max-width: 100%;
+  font-size: clamp(42px, 5.3vw, 72px);
+  line-height: 0.9;
+}
+
+.v439-white-page .pdp-summary h1 span,
 .v219-pet-white-page .pdp-summary h1 span {
   white-space: normal;
 }
@@ -7511,6 +7518,11 @@ body:has(.v219-pet-white-page) {
   }
 
   .v219-pet-white-page .pdp-summary h1 {
+    font-size: clamp(34px, 10.5vw, 42px);
+    line-height: 0.95;
+  }
+
+  .v439-white-page .pdp-summary h1 {
     font-size: clamp(34px, 10.5vw, 42px);
     line-height: 0.95;
   }
@@ -7705,5 +7717,364 @@ body:has(.v219-pet-white-page) {
   .site-footer .footer-links { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .site-footer details { border: 0; }
   .site-footer summary { pointer-events: none; list-style: none; }
-  .site-footer summary::-webkit-details-marker { display: none; }
+.site-footer summary::-webkit-details-marker { display: none; }
+}
+
+/* Responsive symmetry and spacing consistency pass */
+:root {
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --site-max: 1440px;
+  --site-gutter: 16px;
+  --section-y: 48px;
+  --card-pad: 16px;
+  --ui-radius: 8px;
+  --ui-border: 1px solid rgba(24,196,196,0.24);
+  --heading-gap: 16px;
+}
+
+@media (min-width: 760px) {
+  :root {
+    --site-gutter: 64px;
+    --section-y: 80px;
+    --card-pad: 24px;
+    --heading-gap: 24px;
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --site-max: 1600px;
+    --site-gutter: 80px;
+    --section-y: 96px;
+  }
+}
+
+.app-shell {
+  width: 100%;
+  max-width: none;
+}
+
+.home-page > section:not(.store-hero):not(.offer-strip),
+.home-page > footer,
+.collection-page > section,
+.collection-page > .breadcrumbs,
+.collection-page > footer,
+.pdp-v2 > section:not(.pdp-hero),
+.pdp-v2 > .breadcrumbs,
+.pdp-v2 > footer,
+.cart-page .cart-shell {
+  width: min(var(--site-max), calc(100% - (var(--site-gutter) * 2)));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-page > section:not(.store-hero):not(.conversion-band):not(.category-rail):not(.product-page-spotlight),
+.collection-page > section:not(.filter-bar):not(.collection-tools),
+.pdp-v2 > section:not(.pdp-hero),
+.cart-page .cart-shell {
+  margin-top: var(--space-3);
+}
+
+.home-page .product-page-spotlight,
+.home-page .stock-board,
+.home-page .product-grid-section,
+.home-page .home-feature,
+.home-page .parallax-showcase,
+.home-page .visual-wall,
+.home-page .brand-proof-grid,
+.home-page .secondary-trust-bar,
+.home-page .home-faq,
+.home-page .home-blog,
+.home-page .marketplaces,
+.collection-hero,
+.catalog-index,
+.collection-promo,
+.catalog-section,
+.pdp-features,
+.bundle-section,
+.video-gallery,
+.reviews-section,
+.recently-viewed,
+.payment-section,
+.cart-shell {
+  padding: var(--section-y) var(--site-gutter);
+}
+
+.home-page .product-page-spotlight,
+.home-page .stock-board,
+.home-page .product-grid-section,
+.home-page .home-feature,
+.home-page .parallax-showcase,
+.home-page .visual-wall,
+.home-page .brand-proof-grid,
+.home-page .secondary-trust-bar,
+.home-page .home-faq,
+.home-page .home-blog,
+.home-page .marketplaces,
+.collection-hero,
+.catalog-index,
+.collection-promo,
+.catalog-section,
+.pdp-gallery,
+.pdp-summary,
+.offer-panel,
+.emi-panel,
+.delivery-check,
+.bundle-section,
+.video-gallery,
+.reviews-section,
+.recently-viewed,
+.payment-section,
+.checkout-card,
+.cart-shell,
+.product-tile,
+.stock-feature-card,
+.stock-mini-card,
+.spotlight-page-card,
+.bestseller-card,
+.testimonial-panel,
+.need-grid a,
+.home-blog article,
+.faq-list details,
+.brand-proof-grid article,
+.secondary-trust-bar,
+.site-footer details,
+.signup-dialog {
+  border: var(--ui-border);
+  border-radius: var(--ui-radius);
+  overflow: hidden;
+}
+
+.product-tile,
+.stock-feature-card,
+.stock-mini-card,
+.spotlight-page-card,
+.bestseller-card,
+.need-grid a,
+.home-blog article,
+.review-cards article,
+.coupon-grid article,
+.feature-icon-grid article,
+.addon-grid label,
+.catalog-index a {
+  padding: var(--card-pad);
+}
+
+.section-head,
+.collection-tools {
+  gap: var(--space-2);
+  margin-bottom: var(--heading-gap);
+}
+
+.section-head h2,
+.home-page .section-head h2,
+.collection-page .section-head h2,
+.product-grid-section .section-head h2,
+.home-blog .section-head h2,
+.home-faq .section-head h2 {
+  margin-top: var(--space-1);
+  line-height: 0.95;
+}
+
+.section-head small,
+.pdp-category,
+.spotlight-page-card small,
+.testimonial-panel small,
+.need-grid span,
+.home-blog small {
+  letter-spacing: 0.12em;
+}
+
+.product-grid,
+.collection-grid,
+.catalog-index,
+.spotlight-page-grid,
+.bestseller-carousel,
+.need-grid,
+.blog-grid,
+.review-cards,
+.feature-icon-grid,
+.coupon-grid,
+.secondary-trust-bar,
+.brand-proof-grid {
+  gap: var(--space-2);
+}
+
+.product-tile img,
+.catalog-index img,
+.stock-media img,
+.stock-mini-card img,
+.spotlight-page-card img,
+.bestseller-card img,
+.need-grid img,
+.home-blog img,
+.review-cards img {
+  border-radius: var(--ui-radius);
+  overflow: hidden;
+}
+
+.product-tile img,
+.catalog-index img,
+.stock-mini-card img,
+.bestseller-card img,
+.need-grid img,
+.home-blog img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.home-page button,
+.home-page a,
+.collection-page button,
+.collection-page a,
+.pdp-v2 button,
+.pdp-v2 a,
+.cart-page button,
+.cart-page a,
+.filter-bar a,
+.filter-bar button,
+.checkout-card button,
+.primary-buy,
+.checkout-now {
+  border-radius: var(--ui-radius);
+}
+
+.icon-button,
+.header-actions button,
+.header-actions .cart,
+.hero-dots button,
+.corner,
+.preloader-mark span {
+  border-radius: 999px;
+}
+
+.pdp-v2 {
+  --pdp-container: min(var(--site-max), calc(100% - (var(--site-gutter) * 2)));
+}
+
+.pdp-hero,
+.pdp-features,
+.bundle-section,
+.video-gallery,
+.reviews-section,
+.recently-viewed,
+.payment-section,
+.cart-shell {
+  width: var(--pdp-container);
+}
+
+body:has(.pdp-v2) {
+  zoom: 1;
+}
+
+.home-page .conversion-band,
+.home-page .category-rail,
+.home-page .product-page-spotlight,
+.home-page .stock-board,
+.home-page .product-grid-section,
+.home-page .home-feature,
+.home-page .parallax-showcase,
+.home-page .visual-wall,
+.home-page .brand-proof-grid,
+.home-page .secondary-trust-bar,
+.home-page .home-faq,
+.home-page .home-blog,
+.home-page .marketplaces {
+  margin-top: var(--space-3);
+}
+
+.home-page .topbar,
+.collection-page .topbar,
+.pdp-v2 .topbar,
+.cart-page .topbar {
+  padding-left: var(--site-gutter);
+  padding-right: var(--site-gutter);
+}
+
+.home-page .home-hero-slider {
+  padding: 0 !important;
+}
+
+.home-page .category-rail {
+  padding: var(--section-y) var(--site-gutter);
+}
+
+.catalog-index a,
+.collection-grid .product-tile,
+.product-grid .product-tile {
+  border: var(--ui-border);
+}
+
+.pdp-v2 .pdp-features,
+.pdp-v2 .product-grid-section,
+.pdp-v2 .recently-viewed,
+.v439-feature-band,
+.v219-pet-feature-band,
+.v439-story,
+.v219-pet-story {
+  padding: var(--section-y) var(--site-gutter);
+}
+
+.pdp-v2 footer {
+  padding: var(--section-y) var(--site-gutter);
+}
+
+@media (max-width: 759px) {
+  .home-page > section:not(.store-hero):not(.offer-strip),
+  .home-page > footer,
+  .collection-page > section,
+  .collection-page > .breadcrumbs,
+  .collection-page > footer,
+  .pdp-v2 > section:not(.pdp-hero),
+  .pdp-v2 > .breadcrumbs,
+  .pdp-v2 > footer,
+  .cart-page .cart-shell {
+    width: calc(100% - (var(--site-gutter) * 2));
+  }
+
+  .home-page .product-page-spotlight,
+  .home-page .stock-board,
+  .home-page .product-grid-section,
+  .home-page .home-feature,
+  .home-page .parallax-showcase,
+  .home-page .visual-wall,
+  .home-page .brand-proof-grid,
+  .home-page .secondary-trust-bar,
+  .home-page .home-faq,
+  .home-page .home-blog,
+  .home-page .marketplaces,
+  .home-page .category-rail,
+  .collection-hero,
+  .catalog-index,
+  .collection-promo,
+  .catalog-section,
+  .pdp-features,
+  .bundle-section,
+  .video-gallery,
+  .reviews-section,
+  .recently-viewed,
+  .payment-section,
+  .cart-shell,
+  .v439-feature-band,
+  .v219-pet-feature-band,
+  .v439-story,
+  .v219-pet-story,
+  .pdp-v2 .product-grid-section {
+    padding: var(--section-y) var(--card-pad);
+  }
+
+  .bestseller-carousel,
+  .testimonial-strip,
+  .station-card-flow,
+  .home-page .marketplaces .logo-marquee {
+    margin-left: calc(var(--card-pad) * -1);
+    margin-right: calc(var(--card-pad) * -1);
+    padding-left: var(--card-pad);
+    padding-right: var(--card-pad);
+  }
 }
