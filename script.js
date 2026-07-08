@@ -1,14 +1,37 @@
 const preloader = document.querySelector("[data-preloader]");
 if (preloader) {
+  preloader.innerHTML = `
+    <section class="preloader-card" aria-label="VGR loading highlights">
+      <div class="preloader-brand">
+        <img src="assets/logo-vgr-DqorsC6P.png" alt="VGR">
+        <span></span>
+      </div>
+      <div class="preloader-products" aria-hidden="true">
+        <img src="assets/hero-1-BiMT0yIW.png" alt="">
+        <img src="assets/v439-gallery-01.webp" alt="">
+        <img src="assets/v219-pet-gallery-01.webp" alt="">
+      </div>
+      <div class="preloader-copy">
+        <small>Loading VGR Store</small>
+        <h2>Performance grooming, ready to ship.</h2>
+        <ul>
+          <li>Free Express Shipping ₹999+</li>
+          <li>1+1 Year Warranty</li>
+          <li>COD · Secure Checkout · Fast Dispatch</li>
+        </ul>
+      </div>
+      <div class="preloader-progress" aria-hidden="true"><span></span></div>
+    </section>
+  `;
   const hidePreloader = () => {
     preloader.classList.add("is-hidden");
     window.setTimeout(() => preloader.remove(), 700);
   };
   const startedAt = Date.now();
   window.addEventListener("load", () => {
-    window.setTimeout(hidePreloader, Math.max(0, 620 - (Date.now() - startedAt)));
+    window.setTimeout(hidePreloader, Math.max(0, 1400 - (Date.now() - startedAt)));
   }, { once: true });
-  window.setTimeout(hidePreloader, 2400);
+  window.setTimeout(hidePreloader, 3200);
 }
 
 let images = [
