@@ -382,3 +382,87 @@ if (featureLab) {
     featureObserver.observe(card);
   });
 }
+
+const signupPopup = document.querySelector("[data-signup-popup]");
+const signupClose = document.querySelector("[data-signup-close]");
+if (signupPopup && !sessionStorage.getItem("vgrSignupClosed")) {
+  window.setTimeout(() => {
+    signupPopup.hidden = false;
+  }, 900);
+}
+if (signupPopup && signupClose) {
+  const closeSignup = () => {
+    signupPopup.hidden = true;
+    sessionStorage.setItem("vgrSignupClosed", "1");
+  };
+  signupClose.addEventListener("click", closeSignup);
+  signupPopup.addEventListener("click", (event) => {
+    if (event.target === signupPopup) closeSignup();
+  });
+  signupPopup.querySelector("form")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    closeSignup();
+  });
+}
+
+const homeSlider = document.querySelector("[data-home-slider]");
+if (homeSlider) {
+  const slides = [...homeSlider.querySelectorAll(".home-hero-slide")];
+  const prev = homeSlider.querySelector("[data-home-slide-prev]");
+  const next = homeSlider.querySelector("[data-home-slide-next]");
+  const dotsWrap = homeSlider.querySelector("[data-home-slide-dots]");
+  let index = 0;
+  let startX = 0;
+  const dots = slides.map((_, dotIndex) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Show slide ${dotIndex + 1}`);
+    dot.addEventListener("click", () => setSlide(dotIndex));
+    dotsWrap?.appendChild(dot);
+    return dot;
+  });
+  const setSlide = (nextIndex) => {
+    index = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === index));
+    dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === index));
+  };
+  prev?.addEventListener("click", () => setSlide(index - 1));
+  next?.addEventListener("click", () => setSlide(index + 1));
+  homeSlider.addEventListener("touchstart", (event) => {
+    startX = event.touches[0].clientX;
+  }, { passive: true });
+  homeSlider.addEventListener("touchend", (event) => {
+    const delta = event.changedTouches[0].clientX - startX;
+    if (Math.abs(delta) > 42) setSlide(index + (delta < 0 ? 1 : -1));
+  }, { passive: true });
+  setSlide(0);
+  window.setInterval(() => setSlide(index + 1), 5200);
+}
+
+document.querySelectorAll(".bestseller-card button").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    button.textContent = "Added";
+    window.setTimeout(() => {
+      button.textContent = "Add to Cart";
+    }, 1200);
+  });
+});
+
+document.querySelectorAll(".signup-dialog form, .footer-newsletter form").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+});
+
+const syncFooterAccordions = () => {
+  const mobile = window.matchMedia("(max-width: 759px)").matches;
+  document.querySelectorAll(".site-footer details").forEach((detail) => {
+    detail.open = !mobile;
+  });
+};
+if (document.querySelector(".site-footer details")) {
+  syncFooterAccordions();
+  window.addEventListener("resize", syncFooterAccordions);
+}

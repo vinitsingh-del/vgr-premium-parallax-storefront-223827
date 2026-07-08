@@ -16,21 +16,33 @@
       </div>
       <p>Voyager performance grooming</p>
     </div>
+    <div class="signup-popup" data-signup-popup hidden>
+      <div class="signup-dialog" role="dialog" aria-modal="true" aria-labelledby="signup-title">
+        <button type="button" aria-label="Close signup popup" data-signup-close>×</button>
+        <small>First Order Offer</small>
+        <h2 id="signup-title">Unlock 10% OFF grooming essentials</h2>
+        <p>Join the VGR update list for launch deals, product drops, and fast-dispatch offers.</p>
+        <form>
+          <input type="email" placeholder="Email address" aria-label="Email address">
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
     <main class="app-shell home-page">
-      <div class="offer-strip"><div class="marquee"><span>Top Offer · 5% prepaid discount</span><b>•</b><span>Free Express Shipping ₹999+</span><b>•</b><span>1+1 Year Warranty</span><b>•</b><span>Offers & Deals live now</span><b>•</b><span>7-Day Replacement</span><b>•</b><span>Top Offer · 5% prepaid discount</span></div></div>
+      <div class="offer-strip home-offer-strip"><div class="marquee"><span>Free Express Shipping ₹999+</span><b>•</b><span>1+1 Year Warranty</span><b>•</b><span>5% OFF prepaid orders</span><b>•</b><span>7-Day Replacement</span><b>•</b><span>Free Express Shipping ₹999+</span><b>•</b><span>1+1 Year Warranty</span></div></div>
       <header class="topbar">
         <button class="icon-button" aria-label="Menu"><span></span><span></span><span></span></button>
         <a class="brand" href="index.html" aria-label="VGR home"><img src="assets/logo-vgr-DqorsC6P.png" alt="VGR"></a>
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="collection.html#bestseller">Bestseller</a>
           <a href="collection.html#new-arrival">New Arrival</a>
-          <a href="collection.html#mens">Men's Grooming</a>
-          <a href="collection.html#women">Women's Grooming</a>
-          <a href="collection.html#professional">Professional Grooming</a>
-          <a href="collection.html#pet">Pet's Grooming</a>
-          <a href="collection.html#baby">Baby Care</a>
-          <a href="collection.html#lifestyle">Lifestyle Essentials</a>
-          <a href="collection.html#budget">Shop By Budget</a>
+          <div class="nav-menu"><a href="collection.html#mens">Men's Grooming</a><div class="mega-menu"><a href="product.html">Hair Clippers</a><a href="collection.html#trimmers">Trimmers</a><a href="collection.html#shavers">Shavers</a></div></div>
+          <div class="nav-menu"><a href="collection.html#women">Women's Grooming</a><div class="mega-menu"><a href="product-v439.html">Foldable Hair Dryer</a><a href="collection.html#women">Epilators</a><a href="collection.html#women">Hot Air Brushes</a></div></div>
+          <div class="nav-menu"><a href="collection.html#professional">Professional Grooming</a><div class="mega-menu"><a href="collection.html#limited">Barber Kits</a><a href="collection.html#professional">Salon Sets</a><a href="collection.html#clippers">Pro Clippers</a></div></div>
+          <div class="nav-menu"><a href="collection.html#pet">Pet's Grooming</a><div class="mega-menu"><a href="product-v219-pet.html">Pet Trimmers</a><a href="collection.html#pet">Dog Clippers</a><a href="collection.html#pet">Pet Kits</a></div></div>
+          <div class="nav-menu"><a href="collection.html#baby">Baby Care</a><div class="mega-menu"><a href="collection.html#baby">Baby Clippers</a><a href="collection.html#baby">Gentle Trimmers</a><a href="collection.html#baby">Family Essentials</a></div></div>
+          <div class="nav-menu"><a href="collection.html#lifestyle">Lifestyle Essentials</a><div class="mega-menu"><a href="collection.html#fabric">Lint Removers</a><a href="collection.html#viral">Callus Removers</a><a href="collection.html#lifestyle">Daily Care Tools</a></div></div>
+          <div class="nav-menu"><a href="collection.html#budget">Shop By Budget</a><div class="mega-menu mega-menu--budget"><a href="collection.html#budget">Under ₹800</a><a href="collection.html#budget">Under ₹1000</a><a href="collection.html#budget">Under ₹2000</a><a href="collection.html#offers">Best Deals</a></div></div>
           <a href="collection.html#offers">Offers & Deals</a>
         </nav>
         <nav class="header-actions" aria-label="Quick links">
@@ -41,64 +53,106 @@
         </nav>
       </header>
 
-      <section class="store-hero parallax-stage">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-video-panel parallax-card" data-parallax="0.08" aria-hidden="true">
-          <video autoplay muted loop playsinline preload="metadata" poster="assets/official-01.jpg">
-            <source src="assets/hero-banner.mp4" type="video/mp4">
-          </video>
+      <section class="store-hero home-hero-slider" data-home-slider>
+        <div class="home-hero-track">
+          <article class="home-hero-slide is-active">
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/official-01.jpg"><source src="assets/hero-banner.mp4" type="video/mp4"></video>
+            <div class="store-hero-copy">
+              <span><i></i><b>VGR</b></span>
+              <h1>Mr. SUPER POWER</h1>
+              <p>Stepless Pro 4-in-1 Barber Series Combo Kit for salon-ready grooming.</p>
+              <div class="hero-actions"><a href="product.html">Buy Now</a><a href="collection.html#limited">Explore Kit</a></div>
+            </div>
+          </article>
+          <article class="home-hero-slide">
+            <img src="assets/hero-1-BiMT0yIW.png" alt="VGR VL-786 Pro Hair Clipper">
+            <div class="store-hero-copy">
+              <span><i></i><b>Best Seller</b></span>
+              <h1>VL-786 Pro</h1>
+              <p>High-performance clipper with fast dispatch, COD, and 1+1 year warranty.</p>
+              <div class="hero-actions"><a href="product.html">View Product</a><a href="collection.html#clippers">Shop Clippers</a></div>
+            </div>
+          </article>
+          <article class="home-hero-slide">
+            <img src="assets/v439-gallery-01.webp" alt="VGR V-439 Foldable Hair Dryer">
+            <div class="store-hero-copy">
+              <span><i></i><b>Women's Grooming</b></span>
+              <h1>V-439 Dryer</h1>
+              <p>Foldable hair dryer with a clean white product page and AI lifestyle styling.</p>
+              <div class="hero-actions"><a href="product-v439.html">Shop V-439</a><a href="collection.html#women">Women's Tools</a></div>
+            </div>
+          </article>
+          <article class="home-hero-slide">
+            <img src="assets/v219-pet-gallery-01.webp" alt="VGR V-240 Professional Pet Trimmer">
+            <div class="store-hero-copy">
+              <span><i></i><b>Pet Grooming</b></span>
+              <h1>Pet Trimmer</h1>
+              <p>Comfortable trimming for dogs and cats with a dedicated pet AI product page.</p>
+              <div class="hero-actions"><a href="product-v219-pet.html">Shop Pet Page</a><a href="collection.html#pet">Pet Range</a></div>
+            </div>
+          </article>
         </div>
-        <div class="store-hero-copy">
-          <span><i></i><b data-hero-kicker>VGR</b></span>
-          <h1 data-hero-title>Mr. SUPER POWER</h1>
-          <p data-hero-copy>Stepless Pro 4-in-1 Barber Series Combo Kit for Salon, Red</p>
-          <div class="hero-actions"><a data-hero-primary href="product.html">Buy Now</a><a data-hero-secondary href="collection.html">Our Products</a></div>
-        </div>
+        <button class="hero-arrow hero-arrow--prev" type="button" aria-label="Previous slide" data-home-slide-prev>‹</button>
+        <button class="hero-arrow hero-arrow--next" type="button" aria-label="Next slide" data-home-slide-next>›</button>
+        <div class="hero-dots" aria-label="Hero slides" data-home-slide-dots></div>
       </section>
 
-      <section class="hero-product-section stock-board" aria-labelledby="stock-board-title">
+      <section class="hero-product-section stock-board bestsellers-section" aria-labelledby="stock-board-title">
         <div class="stock-board-head">
           <div>
-            <small>In Stock · Fast Dispatch</small>
-            <h2 id="stock-board-title">Ready to ship grooming tools</h2>
+            <small>Bestsellers · Low Stock Alerts</small>
+            <h2 id="stock-board-title">Top products customers keep choosing</h2>
           </div>
-          <a href="collection.html#all-products">Shop all products</a>
+          <a href="collection.html#bestseller">Shop bestsellers</a>
         </div>
-        <a class="stock-feature-card" href="product.html">
-          <div class="stock-media">
-            <span>Best Seller</span>
-            <img src="assets/hero-1-BiMT0yIW.png" alt="VGR VL-786 Pro Hair Clipper">
+        <div class="bestseller-layout">
+          <div class="bestseller-carousel">
+            <a class="bestseller-card" href="product.html">
+              <img src="assets/hero-1-BiMT0yIW.png" alt="VGR VL-786 Pro Hair Clipper">
+              <span>Hair Clipper</span>
+              <b>VGR VL-786 Pro Hair Clipper</b>
+              <p><strong>₹2,299</strong><del>₹4,999</del><em>54% OFF</em></p>
+              <small>★★★★★ 4.9 · 2,184 reviews</small>
+              <meter min="0" max="100" value="78">Low stock</meter>
+              <button type="button">Add to Cart</button>
+            </a>
+            <a class="bestseller-card" href="product-v439.html">
+              <img src="assets/v439-gallery-01.webp" alt="VGR V-439 Foldable Hair Dryer">
+              <span>Women's Grooming</span>
+              <b>VGR V-439 Foldable Hair Dryer</b>
+              <p><strong>₹1,499</strong><del>₹1,999</del><em>25% OFF</em></p>
+              <small>★★★★★ 4.8 · 1,106 reviews</small>
+              <meter min="0" max="100" value="66">Selling fast</meter>
+              <button type="button">Add to Cart</button>
+            </a>
+            <a class="bestseller-card" href="product-v219-pet.html">
+              <img src="assets/v219-pet-gallery-01.webp" alt="VGR V-240 Professional Pet Trimmer">
+              <span>Pet Grooming</span>
+              <b>VGR V-240 Professional Pet Trimmer</b>
+              <p><strong>From ₹1,979</strong><del>₹2,999</del><em>34% OFF</em></p>
+              <small>★★★★★ 4.7 · 1,842 reviews</small>
+              <meter min="0" max="100" value="72">Pet care demand</meter>
+              <button type="button">Add to Cart</button>
+            </a>
+            <a class="bestseller-card" href="collection.html#women">
+              <img src="assets/official-15.webp" alt="VGR V-722 Professional Cordless Epilator">
+              <span>Women's Grooming</span>
+              <b>VGR V-722 Professional Cordless Epilator</b>
+              <p><strong>₹2,499</strong><del>₹3,299</del><em>24% OFF</em></p>
+              <small>★★★★☆ 4.6 · 892 reviews</small>
+              <meter min="0" max="100" value="58">Limited batch</meter>
+              <button type="button">Add to Cart</button>
+            </a>
           </div>
-          <div class="stock-copy">
-            <small>Hair Clipper</small>
-            <b>VGR VL-786 Pro Hair Clipper</b>
-            <p><strong>₹2,299</strong><del>₹4,999</del><em>Save 54%</em></p>
-            <ul aria-label="Product signals">
-              <li>4.9 rated</li>
-              <li>COD available</li>
-              <li>1+1 year warranty</li>
-            </ul>
-          </div>
-        </a>
-        <div class="stock-mini-grid">
-          <a class="stock-mini-card" href="collection.html#trimmers">
-            <img src="assets/official-02.webp" alt="VGR Rosso Professional Beard and Moustache Trimmer">
-            <span>Hair Trimmer</span>
-            <b>Rosso Professional Beard & Moustache Trimmer</b>
-            <p><strong>₹1,599</strong><em>5.0 rated</em></p>
-          </a>
-          <a class="stock-mini-card" href="collection.html#women">
-            <img src="assets/official-03.webp" alt="VGR V-484 Professional 4 in 1 Hot Air Brush">
-            <span>Hair Volumizer</span>
-            <b>V-484 Professional 4 in 1 Hot Air Brush</b>
-            <p><strong>₹3,199</strong><em>Save 26%</em></p>
-          </a>
-          <a class="stock-mini-card" href="product-v439.html">
-            <img src="assets/official-04.jpg" alt="VGR V-439 Foldable Hair Dryer">
-            <span>Hair Dryer</span>
-            <b>V-439 Foldable Hair Dryer</b>
-            <p><strong>₹1,499</strong><em>Foldable</em></p>
-          </a>
+          <aside class="testimonial-panel" aria-label="Customer testimonials">
+            <small>Customer Proof</small>
+            <h3>Salon feel, home routine.</h3>
+            <div class="testimonial-strip">
+              <blockquote>“The clipper cuts clean and the battery backup is excellent.”<cite>Verified buyer</cite></blockquote>
+              <blockquote>“The pet trimmer is much calmer for quick at-home grooming.”<cite>Pet parent</cite></blockquote>
+              <blockquote>“Compact dryer, clean page, easy to compare and buy.”<cite>Women’s grooming buyer</cite></blockquote>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -106,6 +160,7 @@
         <article><b>2.4L+</b><span>Shipped</span></article>
         <article><b>4.8★</b><span>Rated</span></article>
         <article><b>24h</b><span>Dispatch</span></article>
+        <article><b>15+</b><span>Platforms</span></article>
       </section>
 
       <section class="product-page-spotlight" aria-labelledby="product-page-spotlight-title">
@@ -297,20 +352,16 @@
       </section>
 
       <section class="product-grid-section">
-        <div class="section-head"><div><small>Complete VGR Range</small><h2>Shop by product need</h2></div><a href="collection.html#all-products">View all</a></div>
-        <div class="product-grid">
-          <a class="product-tile featured" href="product.html"><span>Hair Clipper · Save 54%</span><img src="assets/hero-1-BiMT0yIW.png" alt=""><b>VGR VL-786 Pro Hair Clipper</b><p><strong>₹2,299</strong><del>₹4,999</del></p></a>
-          <a class="product-tile" href="collection.html#limited"><span>Limited Edition</span><img src="assets/official-01.jpg" alt=""><b>VGR Mr. SUPER POWER 4-in-1 Barber Kit</b><p><strong>₹32,999</strong><del>₹50,000</del></p></a>
-          <a class="product-tile" href="collection.html#trimmers"><span>Hair Trimmer</span><img src="assets/official-02.webp" alt=""><b>VGR Rosso Beard & Moustache Trimmer</b><p><strong>₹1,599</strong><del>₹2,499</del></p></a>
-          <a class="product-tile" href="collection.html#women"><span>Hair Volumizer</span><img src="assets/official-03.webp" alt=""><b>VGR V-484 4 in 1 Hot Air Brush</b><p><strong>₹3,199</strong><del>₹4,299</del></p></a>
-          <a class="product-tile" href="collection.html#women"><span>Hair Straightener</span><img src="assets/official-16.jpg" alt=""><b>VGR V-511 Hair Straightener For Women</b><p><strong>₹2,249</strong><del>₹2,699</del></p></a>
-          <a class="product-tile" href="product-v439.html"><span>Hair Dryer · Save 25%</span><img src="assets/official-04.jpg" alt=""><b>VGR V-439 Foldable Hair Dryer</b><p><strong>₹1,499</strong><del>₹1,999</del></p></a>
-          <a class="product-tile" href="collection.html#fabric"><span>Lint Remover</span><img src="assets/official-15.webp" alt=""><b>VGR V-818 Professional Lint Remover</b><p><strong>₹1,199</strong><del>₹1,599</del></p></a>
-          <a class="product-tile" href="collection.html#shavers"><span>Shaver</span><img src="assets/official-11.webp" alt=""><b>VGR V-353 Limited Edition 2 In 1 Beard Shaver</b><p><strong>₹749</strong><del>₹999</del></p></a>
-          <a class="product-tile" href="collection.html#professional"><span>Professional Tools</span><img src="assets/official-11.webp" alt=""><b>VGR V-885 S2 Rotafinity Pro Barber Set</b><p><strong>₹16,999</strong><del>₹21,999</del></p></a>
-          <a class="product-tile" href="collection.html#women"><span>Women’s Grooming</span><img src="assets/official-15.webp" alt=""><b>VGR V-722 Professional Cordless Epilator</b><p><strong>₹2,499</strong></p></a>
-          <a class="product-tile" href="product-v219-pet.html"><span>Pet Grooming</span><img src="assets/official-12.jpg" alt=""><b>VGR V-240 Professional Pet Trimmer</b><p><strong>From ₹1,979</strong><del>₹2,999</del></p></a>
-          <a class="product-tile" href="collection.html#viral"><span>Viral Product</span><img src="assets/official-15.webp" alt=""><b>VGR V-812 Professional 2 In 1 Callus Remover</b><p><strong>₹1,399</strong><del>₹1,899</del></p></a>
+        <div class="section-head"><div><small>Total Range</small><h2>Shop by product need</h2></div><a href="collection.html#all-products">View all</a></div>
+        <div class="need-grid">
+          <a href="collection.html#trimmers"><img src="assets/official-02.webp" alt=""><b>Trimmers</b><span>Beard, moustache, detail grooming</span></a>
+          <a href="collection.html#clippers"><img src="assets/hero-1-BiMT0yIW.png" alt=""><b>Clippers</b><span>Home and salon hair cutting</span></a>
+          <a href="product-v439.html"><img src="assets/v439-gallery-01.webp" alt=""><b>Hair Dryers</b><span>Foldable and professional dryers</span></a>
+          <a href="collection.html#women"><img src="assets/official-16.jpg" alt=""><b>Straighteners</b><span>Smooth daily styling tools</span></a>
+          <a href="collection.html#women"><img src="assets/official-03.webp" alt=""><b>Volumizers</b><span>Hot air brushes and styling heads</span></a>
+          <a href="product-v219-pet.html"><img src="assets/v219-pet-gallery-01.webp" alt=""><b>Pet Grooming</b><span>Dogs, cats, coat trims</span></a>
+          <a href="collection.html#shavers"><img src="assets/official-11.webp" alt=""><b>Shavers</b><span>Clean face and bald-head shaving</span></a>
+          <a href="collection.html#fabric"><img src="assets/official-15.webp" alt=""><b>Lifestyle Care</b><span>Lint removers and essentials</span></a>
         </div>
       </section>
 
@@ -346,8 +397,49 @@
         </article>
       </section>
 
-      <section class="marketplaces"><h2>#1 Best Sellers</h2><p>Amazon, Flipkart, Myntra, JioMart, Blinkit and more</p><div class="market-row logo-marquee" aria-label="VGR marketplace availability"><span><img src="assets/logo-market-amazon.svg" alt="Amazon"></span><span><img src="assets/logo-market-flipkart.svg" alt="Flipkart"></span><span><img src="assets/logo-market-myntra.svg" alt="Myntra"></span><span><img src="assets/logo-market-jiomart.svg" alt="JioMart"></span><span><img src="assets/logo-market-blinkit.svg" alt="Blinkit"></span><span><img src="assets/logo-market-tatacliq.svg" alt="Tata CLiQ"></span><span><img src="assets/logo-market-zepto.svg" alt="Zepto"></span><span aria-hidden="true"><img src="assets/logo-market-amazon.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-flipkart.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-myntra.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-jiomart.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-blinkit.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-tatacliq.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-zepto.svg" alt=""></span></div></section>
-      <footer><div class="footer-links"><div><h4>Customer</h4><p>Track your Order</p><p>Cancel Order</p><p>Payment Link</p><p>Contact Us</p><p>Warranty Policy</p></div><div><h4>Policies</h4><p>About Us</p><p>Careers</p><p>Blog & News</p><p>Privacy Policy</p><p>Refund Policy</p></div></div><img src="assets/logo-vgr-DqorsC6P.png" alt="VGR"><p>© 2026 VGR. All rights reserved.</p><p>Owned by VGR India Private Limited</p></footer>
+      <section class="secondary-trust-bar" aria-label="Store assurances">
+        <article><b>Warranty</b><span>1+1 year support</span></article>
+        <article><b>COD</b><span>Pay on delivery</span></article>
+        <article><b>Authentic</b><span>Official VGR products</span></article>
+        <article><b>Fast Dispatch</b><span>24 hour processing</span></article>
+      </section>
+
+      <section class="home-faq" aria-labelledby="home-faq-title">
+        <div class="section-head"><div><small>FAQs</small><h2 id="home-faq-title">Quick answers before checkout</h2></div></div>
+        <div class="faq-list">
+          <details open><summary>Do VGR products come with warranty?</summary><p>Yes. VGR tools include warranty support, and selected products show 1+1 year warranty eligibility.</p></details>
+          <details><summary>Is Cash on Delivery available?</summary><p>COD is available on eligible pincodes and order values during checkout.</p></details>
+          <details><summary>How fast is dispatch?</summary><p>Most in-stock orders are processed within 24 hours, with express shipping available above ₹999.</p></details>
+          <details><summary>Are these official VGR products?</summary><p>Yes. The storefront uses official VGR product assets, pricing, and category grouping.</p></details>
+          <details><summary>Can I shop by budget?</summary><p>Use the Shop By Budget menu to browse popular ranges under ₹800, ₹1000, ₹2000, and deal sections.</p></details>
+          <details><summary>Do you have pet and women’s grooming products?</summary><p>Yes. The home page highlights both women’s grooming tools and pet grooming products with dedicated category and product pages.</p></details>
+        </div>
+      </section>
+
+      <section class="home-blog" aria-labelledby="home-blog-title">
+        <div class="section-head"><div><small>Blog & News</small><h2 id="home-blog-title">Grooming guides from VGR</h2></div><a href="collection.html#all-products">Shop products</a></div>
+        <div class="blog-grid">
+          <article><img src="assets/hero-1-BiMT0yIW.png" alt=""><small>Hair Clippers</small><h3>How to choose a clipper for home haircuts</h3><p>Blade type, runtime, guide combs, and cleaning habits that matter.</p></article>
+          <article><img src="assets/v439-gallery-01.webp" alt=""><small>Women’s Styling</small><h3>Travel-friendly dryer essentials</h3><p>Why foldable dryers help simplify daily and travel routines.</p></article>
+          <article><img src="assets/v219-pet-gallery-01.webp" alt=""><small>Pet Care</small><h3>Keeping pet trims calm at home</h3><p>Short sessions, guide combs, and steady handling for better grooming.</p></article>
+        </div>
+      </section>
+
+      <section class="marketplaces"><h2>Available on all e-commerce platforms</h2><p>Amazon, Flipkart, Myntra, JioMart, Blinkit and more</p><div class="market-row logo-marquee" aria-label="VGR marketplace availability"><span><img src="assets/logo-market-amazon.svg" alt="Amazon"></span><span><img src="assets/logo-market-flipkart.svg" alt="Flipkart"></span><span><img src="assets/logo-market-myntra.svg" alt="Myntra"></span><span><img src="assets/logo-market-jiomart.svg" alt="JioMart"></span><span><img src="assets/logo-market-blinkit.svg" alt="Blinkit"></span><span><img src="assets/logo-market-tatacliq.svg" alt="Tata CLiQ"></span><span><img src="assets/logo-market-zepto.svg" alt="Zepto"></span><span aria-hidden="true"><img src="assets/logo-market-amazon.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-flipkart.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-myntra.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-jiomart.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-blinkit.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-tatacliq.svg" alt=""></span><span aria-hidden="true"><img src="assets/logo-market-zepto.svg" alt=""></span></div></section>
+      <footer class="site-footer">
+        <div class="footer-newsletter">
+          <img src="assets/logo-vgr-DqorsC6P.png" alt="VGR">
+          <h2>Stay close to VGR drops</h2>
+          <form><input type="email" placeholder="Email address" aria-label="Footer email address"><button type="submit">Join</button></form>
+        </div>
+        <div class="footer-links">
+          <details open><summary>About Us</summary><p>VGR Voyager grooming tools for home, travel, salon, women’s styling, and pet care.</p><p>Our Stores</p><p>Events</p></details>
+          <details open><summary>Contact Us</summary><p>Track your Order</p><p>Cancel Order</p><p>Payment Link</p><p>Contact Us</p></details>
+          <details open><summary>Policies</summary><p>Privacy Policy</p><p>Refund Policy</p><p>Warranty Policy</p><p>Terms of Service</p></details>
+          <details open><summary>Socials</summary><p>Instagram</p><p>YouTube</p><p>Facebook</p><p>LinkedIn</p></details>
+        </div>
+        <div class="footer-bottom"><p>© 2026 VGR. All rights reserved.</p><p>Owned by VGR India Private Limited</p><p class="payment-icons">UPI · Visa · Mastercard · RuPay · COD</p></div>
+      </footer>
     </main>
     <script src="script.js"></script>
   </body>
