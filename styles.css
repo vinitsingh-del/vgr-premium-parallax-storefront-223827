@@ -9017,7 +9017,7 @@ body:has(.pdp-v2) {
   background: #071111;
 }
 
-.home-page .feature-banner-gif {
+.home-page .hero-feature-banner > .feature-banner-gif {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -9028,6 +9028,7 @@ body:has(.pdp-v2) {
   filter: saturate(1.08) contrast(1.06);
 }
 
+.home-page .hero-feature-banner::after,
 .home-page .hero-feature-banner--v439-gif::after {
   content: "";
   position: absolute;
@@ -9039,6 +9040,7 @@ body:has(.pdp-v2) {
   pointer-events: none;
 }
 
+.home-page .hero-feature-banner .feature-banner-copy,
 .home-page .hero-feature-banner--v439-gif .feature-banner-copy {
   z-index: 2;
 }
@@ -9400,6 +9402,7 @@ body:has(.pdp-v2) {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 
+  .home-page .hero-feature-banner::after,
   .home-page .hero-feature-banner--v439-gif::after {
     background: linear-gradient(90deg, rgba(5,17,17,0.72), rgba(5,17,17,0.28) 56%, rgba(5,17,17,0.04));
   }
@@ -9941,6 +9944,8 @@ body:has(.pdp-v2) {
   }
 }
 
+.home-page .hero-feature-banner > .feature-banner-gif,
+.home-page .hero-feature-banner > img.feature-banner-gif,
 .home-page .hero-feature-banner--v439-gif > .feature-banner-gif,
 .home-page .hero-feature-banner--v439-gif > img.feature-banner-gif {
   position: absolute;
