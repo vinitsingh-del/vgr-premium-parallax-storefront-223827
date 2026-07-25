@@ -577,6 +577,40 @@ if (collectionProductTiles.length) {
   });
 }
 
+const collectionSections = document.querySelectorAll(".collection-page .catalog-section[id]");
+if (collectionSections.length) {
+  const stickyHeading = document.createElement("div");
+  stickyHeading.className = "collection-sticky-heading";
+  stickyHeading.setAttribute("aria-live", "polite");
+  stickyHeading.innerHTML = '<div><small>Current Category</small><strong>Limited Edition</strong></div><a href="#all-products">Top</a>';
+  document.body.appendChild(stickyHeading);
+
+  const stickyTitle = stickyHeading.querySelector("strong");
+  const stickyLink = stickyHeading.querySelector("a");
+
+  const updateCollectionStickyHeading = () => {
+    const showAfter = window.innerHeight * 3;
+    stickyHeading.classList.toggle("is-visible", window.scrollY > showAfter);
+
+    let activeSection = collectionSections[0];
+    collectionSections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < Math.min(window.innerHeight * 0.38, 320)) {
+        activeSection = section;
+      }
+    });
+
+    const title = activeSection.querySelector(".section-head h2")?.textContent?.trim() || "VGR Products";
+    stickyTitle.textContent = title;
+    stickyLink.href = `#${activeSection.id}`;
+    stickyLink.textContent = "View";
+  };
+
+  updateCollectionStickyHeading();
+  window.addEventListener("scroll", updateCollectionStickyHeading, { passive: true });
+  window.addEventListener("resize", updateCollectionStickyHeading);
+}
+
 document.querySelectorAll(".signup-dialog form, .footer-newsletter form").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
