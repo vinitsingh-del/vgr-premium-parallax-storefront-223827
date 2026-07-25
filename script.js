@@ -1,17 +1,29 @@
 const preloader = document.querySelector("[data-preloader]");
 if (preloader) {
   preloader.innerHTML = `
-    <section class="preloader-card preloader-card--simple" aria-label="VGR loading highlights">
-      <div class="preloader-brand">
-        <img src="assets/logo-vgr-DqorsC6P.png" alt="VGR">
-        <span></span>
+    <section class="preloader-cinema" aria-label="VGR loading highlights">
+      <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/hero-banner.mp4" type="video/mp4">
+      </video>
+      <div class="preloader-cinema__shade" aria-hidden="true"></div>
+      <div class="preloader-cinema__content">
+        <img class="preloader-cinema__logo" src="assets/logo-vgr-DqorsC6P.png" alt="VGR">
+        <div class="preloader-cinema__products" aria-hidden="true">
+          <img src="assets/home-cutout-vl786.png" alt="">
+          <img src="assets/home-cutout-v439.png" alt="">
+          <img src="assets/home-cutout-v240-pet.png" alt="">
+        </div>
+        <div class="preloader-cinema__copy">
+          <small>Voyager Performance Grooming</small>
+          <h2>Engineered for sharper routines</h2>
+          <ul>
+            <li>24h Dispatch</li>
+            <li>1+1 Year Warranty</li>
+            <li>Official VGR Products</li>
+          </ul>
+        </div>
+        <div class="preloader-progress" aria-hidden="true"><span></span></div>
       </div>
-      <div class="preloader-products" aria-hidden="true">
-        <img src="assets/hero-1-BiMT0yIW.png" alt="">
-        <img src="assets/v439-gallery-01.webp" alt="">
-        <img src="assets/v219-pet-gallery-01.webp" alt="">
-      </div>
-      <div class="preloader-progress" aria-hidden="true"><span></span></div>
     </section>
   `;
   const hidePreloader = () => {
