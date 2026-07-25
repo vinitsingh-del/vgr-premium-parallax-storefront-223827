@@ -200,6 +200,7 @@ if (heroCopy && heroKicker && heroTitle && heroText && heroPrimary && heroSecond
       heroSecondary.textContent = message.secondary[0];
       heroSecondary.href = message.secondary[1];
       heroCopy.classList.remove("is-changing");
+      window.vgrTextMotion?.refreshHero?.(heroCopy);
     }, 220);
   };
   window.setInterval(() => setHeroMessage(heroMessageIndex + 1), 3200);
@@ -455,6 +456,7 @@ if (homeSlider) {
     index = (nextIndex + slides.length) % slides.length;
     slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === index));
     dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === index));
+    window.vgrTextMotion?.animateHeroSlide?.(slides[index]);
     if (index === 0 && firstVideo) {
       firstVideoPlays = 0;
       firstVideo.currentTime = 0;
@@ -610,6 +612,230 @@ if (collectionSections.length) {
   window.addEventListener("scroll", updateCollectionStickyHeading, { passive: true });
   window.addEventListener("resize", updateCollectionStickyHeading);
 }
+
+(() => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const wordSegmenter = text => text.trim().split(/\s+/).filter(Boolean);
+  const textFrom = element => {
+    if (element.dataset.motionOriginal) return element.dataset.motionOriginal;
+    const childText = [...element.children].filter(child => child.tagName === "SPAN").map(child => child.textContent.trim()).filter(Boolean);
+    return (childText.length ? childText.join(" ") : element.textContent).replace(/\s+/g, " ").trim();
+  };
+
+  const setAccessibleText = (element, text) => {
+    if (!element.dataset.motionOriginal) element.dataset.motionOriginal = text;
+    element.setAttribute("aria-label", text);
+  };
+
+  const splitHeroWords = element => {
+    if (!element || element.dataset.motionKind === "hero") return;
+    const text = textFrom(element);
+    if (!text) return;
+    setAccessibleText(element, text);
+    element.classList.add("text-motion-hero", "text-motion-shimmer");
+    element.dataset.motionKind = "hero";
+    element.innerHTML = wordSegmenter(text).map((word, index) => (
+      `<span class="text-motion-word-clip" aria-hidden="true"><span class="text-motion-word" style="--motion-index:${index}">${word}</span></span>`
+    )).join('<span class="text-motion-space" aria-hidden="true"> </span>');
+    element.style.setProperty("--motion-total", String(wordSegmenter(text).length));
+  };
+
+  const splitHeadingLines = element => {
+    if (!element || element.dataset.motionKind === "heading") return;
+    const text = textFrom(element);
+    if (!text) return;
+    setAccessibleText(element, text);
+    element.dataset.motionKind = "heading";
+    element.classList.add("text-motion-heading", "text-motion-shimmer");
+
+    const words = wordSegmenter(text);
+    element.innerHTML = words.map((word, index) => `<span class="text-motion-probe" aria-hidden="true" data-word-index="${index}">${word}</span>`).join(" ");
+    const probes = [...element.querySelectorAll(".text-motion-probe")];
+    const lines = [];
+    probes.forEach((probe) => {
+      const top = Math.round(probe.offsetTop);
+      let line = lines.find(item => Math.abs(item.top - top) < 3);
+      if (!line) {
+        line = { top, words: [] };
+        lines.push(line);
+      }
+      line.words.push(probe.textContent);
+    });
+
+    element.innerHTML = lines.map((line, index) => (
+      `<span class="text-motion-line" aria-hidden="true"><span class="text-motion-line-inner" style="--motion-index:${index}">${line.words.join(" ")}</span></span>`
+    )).join(" ");
+    element.style.setProperty("--motion-total", String(lines.length));
+  };
+
+  const activate = element => {
+    if (!element) return;
+    element.classList.remove("is-text-active");
+    void element.offsetWidth;
+    element.classList.add("is-text-active");
+  };
+
+  const prepareHeroBlock = root => {
+    const activeRoot = root || document;
+    const heroHeading = activeRoot.querySelector?.(".store-hero-copy h1, .collection-hero h1, .collection-promo h2, .pdp-summary h1");
+    splitHeroWords(heroHeading);
+    activeRoot.querySelectorAll?.(".store-hero-copy > span, .feature-banner-copy > small, .collection-hero > div > span, .collection-promo > div > small, .pdp-category").forEach((eyebrow) => {
+      if (eyebrow.querySelector("svg, img, button")) return;
+      eyebrow.classList.add("text-motion-eyebrow");
+      eyebrow.style.setProperty("--motion-letter-spacing", getComputedStyle(eyebrow).letterSpacing);
+    });
+    activeRoot.querySelectorAll?.(".store-hero-copy p, .feature-banner-copy p, .collection-hero p, .collection-promo p, .pdp-summary .purchase-signal").forEach(copy => {
+      copy.classList.add("text-motion-copy");
+    });
+  };
+
+  const animateHeroSlide = slide => {
+    if (reducedMotion || !slide) return;
+    prepareHeroBlock(slide);
+    activate(slide.querySelector(".text-motion-hero"));
+    slide.querySelectorAll(".text-motion-eyebrow").forEach(activate);
+    window.setTimeout(() => slide.querySelectorAll(".text-motion-copy").forEach(activate), 180);
+  };
+
+  const refreshHero = root => {
+    if (reducedMotion || !root) return;
+    root.querySelectorAll("[data-motion-kind]").forEach(el => {
+      const original = textFrom(el);
+      el.removeAttribute("data-motion-kind");
+      el.textContent = original;
+    });
+    prepareHeroBlock(root);
+    animateHeroSlide(root);
+  };
+
+  const prepareButtonTextSwap = () => {
+    const selectors = [
+      ".hero-actions a",
+      ".feature-banner-actions a",
+      ".section-head > a",
+      ".collection-featured-cro a",
+      ".range button",
+      ".primary-buy",
+      ".checkout-now",
+      ".checkout-card button",
+      ".delivery-check button",
+      ".signup-dialog button[type='submit']",
+      ".footer-newsletter button",
+      ".collection-quick-view__panel a",
+      ".collection-tools button"
+    ];
+    document.querySelectorAll(selectors.join(",")).forEach(element => {
+      if (element.dataset.textSwapReady || element.querySelector("svg, img")) return;
+      const text = element.textContent.replace(/\s+/g, " ").trim();
+      if (!text) return;
+      element.dataset.textSwapReady = "true";
+      element.innerHTML = `<span class="text-swap"><span class="text-swap__label">${text}</span><span class="text-swap__ghost" aria-hidden="true">${text}</span></span>`;
+    });
+
+    document.querySelectorAll(".desktop-nav > a, .desktop-nav .nav-menu > a").forEach(link => {
+      if (link.dataset.navSwapReady) return;
+      const text = link.textContent.replace(/\s+/g, " ").trim();
+      if (!text) return;
+      link.dataset.navSwapReady = "true";
+      link.innerHTML = `<span class="nav-text-swap"><span class="nav-text-swap__label">${text}</span><span class="nav-text-swap__ghost" aria-hidden="true">${text}</span></span>`;
+    });
+  };
+
+  const animateNumber = element => {
+    if (element.dataset.counted) return;
+    const finalText = element.dataset.statOriginal || element.textContent.trim();
+    const match = finalText.match(/^([^0-9]*)([\d,]+(?:\.\d+)?)(.*)$/);
+    if (!match) return;
+    element.dataset.counted = "true";
+    element.dataset.statOriginal = finalText;
+    if (reducedMotion) {
+      element.textContent = finalText;
+      return;
+    }
+    const [, prefix, numberText, suffix] = match;
+    const target = Number(numberText.replace(/,/g, ""));
+    const decimals = numberText.includes(".") ? numberText.split(".")[1].length : 0;
+    const duration = Math.min(1200, Math.max(900, 780 + String(target).length * 45));
+    const startedAt = performance.now();
+    const format = value => {
+      const fixed = value.toFixed(decimals);
+      const [whole, dec] = fixed.split(".");
+      const grouped = Number(whole).toLocaleString("en-IN");
+      return `${prefix}${decimals ? `${grouped}.${dec}` : grouped}${suffix}`;
+    };
+    const tick = now => {
+      const progress = Math.min(1, (now - startedAt) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      element.textContent = progress >= 1 ? finalText : format(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  const run = () => {
+    prepareButtonTextSwap();
+
+    document.querySelectorAll(".home-hero-slide, .store-hero-copy, .collection-hero, .collection-promo, .pdp-hero").forEach(prepareHeroBlock);
+    document.querySelectorAll(".home-hero-slide.is-active").forEach(animateHeroSlide);
+    if (!document.querySelector(".home-hero-slide") && !reducedMotion) {
+      document.querySelectorAll(".store-hero-copy, .collection-hero, .collection-promo, .pdp-hero").forEach(animateHeroSlide);
+    }
+
+    const headingTargets = [...document.querySelectorAll("section h2, section h3, .section-head h1")].filter(heading => !heading.closest(".home-hero-slide, .store-hero-copy, .collection-hero, .collection-promo"));
+    headingTargets.forEach(splitHeadingLines);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        activate(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+
+    const copyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        activate(entry.target);
+        copyObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".text-motion-heading").forEach(heading => observer.observe(heading));
+    document.querySelectorAll(".section-head p, section h2 + p, section h3 + p, .feature-banner-copy p, .collection-featured-cro article:first-child p").forEach(copy => {
+      copy.classList.add("text-motion-copy");
+      copyObserver.observe(copy);
+    });
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-text-active");
+        cardObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.18 });
+    document.querySelectorAll(".product-tile, .bestseller-card, .ai-product-card").forEach(card => {
+      card.classList.add("text-motion-card");
+      cardObserver.observe(card);
+    });
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        animateNumber(entry.target);
+        statObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll(".trust-bar b, .collection-cro-strip b, .global-stat b, .global-presence b, .global-presence-stat b, .stat-card b").forEach(stat => statObserver.observe(stat));
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+
+  window.vgrTextMotion = { animateHeroSlide, refreshHero };
+})();
 
 document.querySelectorAll(".signup-dialog form, .footer-newsletter form").forEach((form) => {
   form.addEventListener("submit", (event) => {
