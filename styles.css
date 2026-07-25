@@ -9394,6 +9394,12 @@ body:has(.pdp-v2) {
     object-fit: cover;
   }
 
+  .home-page .home-hero-slide > img.home-hero-cinematic-gif {
+    object-fit: contain;
+    object-position: center top;
+    background: #071111;
+  }
+
   .home-page .hero-feature-banners {
     width: calc(100% - 32px);
     gap: 12px;
