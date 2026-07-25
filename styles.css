@@ -8946,3 +8946,224 @@ body:has(.pdp-v2) {
     height: 260px;
   }
 }
+
+/* Final home-page optimization pass */
+.home-page .home-hero-slider {
+  min-height: clamp(500px, 66vh, 680px);
+}
+
+.home-page .product-page-spotlight {
+  padding-top: clamp(28px, 3.8vw, 48px);
+  padding-bottom: clamp(28px, 3.8vw, 48px);
+}
+
+.home-page .product-page-spotlight .section-head {
+  margin-bottom: 20px;
+}
+
+.home-page .spotlight-page-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-page .spotlight-page-card {
+  min-height: clamp(410px, 34vw, 490px);
+}
+
+.home-page .spotlight-page-card img {
+  height: clamp(168px, 16vw, 220px);
+  padding: 12px;
+}
+
+.home-page .spotlight-page-card div {
+  padding: clamp(18px, 2.6vw, 30px);
+}
+
+.home-page .global-presence-section {
+  order: 8;
+}
+
+.home-page .home-feature {
+  order: 10;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(320px, 1fr);
+  min-height: clamp(320px, 34vw, 460px);
+  gap: clamp(24px, 5vw, 90px);
+  align-items: center;
+  padding: clamp(28px, 4.2vw, 60px);
+}
+
+.home-page .home-feature a {
+  display: none;
+}
+
+.home-page .home-feature img {
+  width: min(560px, 44vw);
+  max-height: 340px;
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 24px 42px rgba(0,0,0,0.34));
+  justify-self: end;
+}
+
+.home-page .parallax-showcase {
+  order: 11;
+  min-height: clamp(440px, 46vw, 600px);
+}
+
+@media (min-width: 900px) {
+  .home-page .bestsellers-section {
+    order: 7;
+  }
+
+  .home-page .product-grid-section {
+    order: 9;
+  }
+}
+
+@media (max-width: 759px) {
+  .home-page .topbar {
+    min-height: 68px;
+  }
+
+  .home-page .home-hero-slider {
+    min-height: 450px;
+  }
+
+  .home-page .home-hero-slide .store-hero-copy {
+    width: calc(100% - 32px);
+    margin-bottom: 48px;
+  }
+
+  .home-page .home-hero-slide h1 {
+    font-size: clamp(44px, 15vw, 58px);
+  }
+
+  .home-page .home-hero-slide p {
+    max-width: 31ch;
+    font-size: 13px;
+  }
+
+  .home-page .conversion-band {
+    position: relative;
+    top: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: calc(100% - 32px);
+    gap: 8px;
+    padding: 10px;
+    overflow: visible;
+  }
+
+  .home-page .conversion-band article {
+    min-width: 0;
+    padding: 12px 8px;
+  }
+
+  .home-page .conversion-band b {
+    font-size: 28px;
+  }
+
+  .home-page .conversion-band span {
+    font-size: 10px;
+  }
+
+  .home-page .product-page-spotlight {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .home-page .product-page-spotlight .section-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .product-page-spotlight .section-head h2 {
+    max-width: 9ch;
+    font-size: clamp(34px, 11vw, 48px);
+  }
+
+  .home-page .product-page-spotlight .section-head a {
+    min-height: 44px;
+    padding: 0 14px;
+  }
+
+  .home-page .spotlight-page-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-page .spotlight-page-card {
+    min-height: 410px;
+  }
+
+  .home-page .spotlight-page-card img {
+    width: min(72%, 250px);
+    height: 170px;
+    padding: 8px;
+  }
+
+  .home-page .spotlight-page-card div {
+    gap: 7px;
+    padding: 20px;
+  }
+
+  .home-page .spotlight-page-card b {
+    font-size: clamp(25px, 8vw, 34px);
+    line-height: 0.96;
+  }
+
+  .home-page .brand-category-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .home-page .brand-category-rail a {
+    min-height: 188px;
+  }
+
+  .home-page .brand-category-rail img {
+    height: 104px;
+  }
+
+  .home-page .global-presence-section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .home-page .global-presence-visual {
+    min-height: 310px;
+  }
+
+  .home-page .home-feature {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .home-page .home-feature h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .home-page .home-feature img {
+    width: min(100%, 320px);
+    max-height: 250px;
+    justify-self: center;
+  }
+
+  .home-page .parallax-showcase {
+    min-height: 520px;
+    padding: 24px 0;
+  }
+
+  .home-page .parallax-copy {
+    padding: 18px var(--card-pad);
+  }
+
+  .home-page .parallax-copy h2 {
+    font-size: clamp(38px, 12vw, 54px);
+  }
+}
