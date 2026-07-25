@@ -501,6 +501,82 @@ document.querySelectorAll(".bestseller-card button").forEach((button) => {
   });
 });
 
+const collectionProductTiles = document.querySelectorAll(".collection-page .product-tile");
+if (collectionProductTiles.length) {
+  const proofTags = [
+    ["Ships 24h", "Best Seller"],
+    ["COD", "2-YR Warranty"],
+    ["Low Stock", "Easy Replace"],
+    ["Price Drop", "Official Product"]
+  ];
+  const quickView = document.createElement("div");
+  quickView.className = "collection-quick-view";
+  quickView.setAttribute("aria-hidden", "true");
+  document.body.appendChild(quickView);
+
+  const closeQuickView = () => {
+    quickView.classList.remove("is-open");
+    quickView.setAttribute("aria-hidden", "true");
+  };
+
+  collectionProductTiles.forEach((tile, index) => {
+    if (!tile.querySelector(".quick-view-panel")) {
+      const panel = document.createElement("div");
+      panel.className = "quick-view-panel";
+      panel.innerHTML = '<span class="quick-view-trigger">Quick View</span><span class="quick-add-trigger">Add To Cart</span>';
+      tile.appendChild(panel);
+    }
+
+    if (!tile.querySelector(".card-proof-tags")) {
+      const tags = document.createElement("ul");
+      tags.className = "card-proof-tags";
+      tags.innerHTML = proofTags[index % proofTags.length].map((tag) => `<li>${tag}</li>`).join("");
+      tile.appendChild(tags);
+    }
+
+    tile.querySelector(".quick-view-trigger")?.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const image = tile.querySelector("img")?.getAttribute("src") || "";
+      const title = tile.querySelector("b")?.textContent?.trim() || "VGR Product";
+      const price = tile.querySelector("p")?.innerHTML || "";
+      const href = tile.getAttribute("href") || "#";
+      quickView.innerHTML = `
+        <div class="collection-quick-view__panel" role="dialog" aria-modal="true" aria-label="Quick view">
+          <button type="button" aria-label="Close quick view">Close</button>
+          <img src="${image}" alt="">
+          <div>
+            <small>Quick View</small>
+            <h2>${title}</h2>
+            <p>${price}</p>
+            <ul><li>Official VGR product</li><li>Fast dispatch</li><li>Secure checkout</li></ul>
+            <a href="${href}">View Product</a>
+          </div>
+        </div>
+      `;
+      quickView.classList.add("is-open");
+      quickView.setAttribute("aria-hidden", "false");
+      quickView.querySelector("button")?.addEventListener("click", closeQuickView);
+    });
+
+    tile.querySelector(".quick-add-trigger")?.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      event.currentTarget.textContent = "Added";
+      window.setTimeout(() => {
+        event.currentTarget.textContent = "Add To Cart";
+      }, 1200);
+    });
+  });
+
+  quickView.addEventListener("click", (event) => {
+    if (event.target === quickView) closeQuickView();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeQuickView();
+  });
+}
+
 document.querySelectorAll(".signup-dialog form, .footer-newsletter form").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
