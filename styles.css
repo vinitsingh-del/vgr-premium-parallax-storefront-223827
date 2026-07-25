@@ -9012,6 +9012,37 @@ body:has(.pdp-v2) {
   background-image: url("assets/ai-pet-grooming-bg.png");
 }
 
+.home-page .hero-feature-banner--v439-gif {
+  grid-template-columns: minmax(300px, 0.72fr) minmax(420px, 1.28fr);
+  background: #071111;
+}
+
+.home-page .feature-banner-gif {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: none;
+  filter: saturate(1.08) contrast(1.06);
+}
+
+.home-page .hero-feature-banner--v439-gif::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(5,17,17,0.64), rgba(5,17,17,0.24) 44%, rgba(5,17,17,0.06)),
+    radial-gradient(circle at 68% 45%, rgba(0,255,170,0.10), transparent 42%);
+  pointer-events: none;
+}
+
+.home-page .hero-feature-banner--v439-gif .feature-banner-copy {
+  z-index: 2;
+}
+
 .home-page .feature-banner-copy {
   position: relative;
   z-index: 2;
@@ -9363,6 +9394,14 @@ body:has(.pdp-v2) {
     min-height: 0;
     align-items: stretch;
     background-position: center;
+  }
+
+  .home-page .hero-feature-banner--v439-gif {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .home-page .hero-feature-banner--v439-gif::after {
+    background: linear-gradient(90deg, rgba(5,17,17,0.72), rgba(5,17,17,0.28) 56%, rgba(5,17,17,0.04));
   }
 
   .home-page .feature-banner-copy {
@@ -9900,4 +9939,22 @@ body:has(.pdp-v2) {
     width: 92%;
     max-height: 84%;
   }
+}
+
+.home-page .hero-feature-banner--v439-gif > .feature-banner-gif,
+.home-page .hero-feature-banner--v439-gif > img.feature-banner-gif {
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  border-radius: 0;
+  background: transparent;
+  transform: none;
+  scale: 1;
+  animation: none;
 }
