@@ -837,6 +837,47 @@ if (collectionSections.length) {
   window.vgrTextMotion = { animateHeroSlide, refreshHero };
 })();
 
+(() => {
+  const rails = [
+    { selector: ".bestseller-carousel", label: "Bestsellers" },
+    { selector: ".station-card-flow", label: "Product lineup" }
+  ];
+
+  rails.forEach(({ selector, label }) => {
+    document.querySelectorAll(selector).forEach((rail, index) => {
+      if (rail.dataset.carouselControlsReady) return;
+      rail.dataset.carouselControlsReady = "true";
+      const controls = document.createElement("div");
+      controls.className = "brand-carousel-controls";
+      controls.setAttribute("aria-label", `${label} carousel controls`);
+      controls.innerHTML = `
+        <button type="button" data-carousel-prev aria-label="Previous ${label}">Prev</button>
+        <button type="button" data-carousel-next aria-label="Next ${label}">Next</button>
+      `;
+      rail.insertAdjacentElement("beforebegin", controls);
+      const getStep = () => {
+        const firstCard = rail.firstElementChild;
+        const gap = parseFloat(getComputedStyle(rail).columnGap || getComputedStyle(rail).gap) || 16;
+        return firstCard ? firstCard.getBoundingClientRect().width + gap : rail.clientWidth * 0.8;
+      };
+      controls.querySelector("[data-carousel-prev]")?.addEventListener("click", () => {
+        rail.scrollBy({ left: -getStep(), behavior: "smooth" });
+      });
+      controls.querySelector("[data-carousel-next]")?.addEventListener("click", () => {
+        rail.scrollBy({ left: getStep(), behavior: "smooth" });
+      });
+      if (index === 0 && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+        window.setInterval(() => {
+          if (!rail.matches(":hover") && document.visibilityState === "visible") {
+            const atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+            rail.scrollTo({ left: atEnd ? 0 : rail.scrollLeft + getStep(), behavior: "smooth" });
+          }
+        }, 5200);
+      }
+    });
+  });
+})();
+
 document.querySelectorAll(".signup-dialog form, .footer-newsletter form").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
